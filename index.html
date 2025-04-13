@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -9,7 +10,6 @@
         html {
             scroll-behavior: smooth;
         }
-
         body {
             margin: 0;
             padding: 0;
@@ -17,7 +17,6 @@
             color: #a6e9ff;
             font-family: 'Montserrat', sans-serif;
         }
-
         nav {
             background-color: #111;
             padding: 15px 20px;
@@ -26,7 +25,6 @@
             top: 0;
             z-index: 1000;
         }
-
         nav a {
             color: #a6e9ff;
             margin: 0 15px;
@@ -34,51 +32,66 @@
             font-weight: bold;
             font-size: 16px;
         }
-
         nav a:hover {
             color: #ffffff;
         }
-
         header {
             padding: 60px 20px 40px;
             text-align: center;
         }
-
         header img {
             max-width: 200px;
             height: auto;
             margin-bottom: 20px;
         }
-
         header h1 {
             font-size: 60px;
             margin: 0;
         }
-
         header p {
             font-size: 24px;
             margin-top: 15px;
             color: #8fd3ff;
         }
-
         section {
             max-width: 1000px;
             margin: 0 auto;
             padding: 80px 20px;
             text-align: center;
         }
-
         section h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
-
         section p {
             font-size: 20px;
             line-height: 1.8;
             margin-bottom: 20px;
         }
-
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #111;
+            color: #a6e9ff;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #25D366;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #1ebc59;
+        }
         footer {
             background-color: #111;
             color: #8fd3ff;
@@ -86,7 +99,6 @@
             padding: 40px 20px;
             font-size: 14px;
         }
-
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
@@ -101,7 +113,6 @@
             z-index: 1001;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-
         .whatsapp-button:hover {
             background-color: #1ebc59;
         }
@@ -136,7 +147,14 @@
     <section id="kontakt">
         <h2>Kontakt</h2>
         <p>Du hast Fragen oder möchtest ein Probetraining vereinbaren?</p>
-        <p>Schreib mir gerne per E-Mail oder WhatsApp.</p>
+        <p>Schreib mir gerne per E-Mail, WhatsApp – oder direkt über dieses Formular:</p>
+        <form action="https://formsubmit.co/ibi_bayrak@hotmail.com" method="POST">
+            <input type="text" name="name" placeholder="Dein Name" required>
+            <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+            <textarea name="message" rows="5" placeholder="Deine Nachricht..." required></textarea>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="submit" value="Nachricht senden">
+        </form>
     </section>
 
     <footer>
