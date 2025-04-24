@@ -166,7 +166,86 @@
   </div>
 </header>
 
-<!-- Die weiteren Bereiche folgen direkt darunter (Über mich, Trainings, Preise, Buchung, Kontakt) -->
+<section id="about">
+  <h2>Über mich</h2>
+  <img src="profil.PNG" alt="Profilbild Ibrahim Bayrak" style="width: 220px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.6);">
+  <p>Ich bin Ibrahim Bayrak – leidenschaftlicher Fussballtrainer, Spieler und Gründer der Fussball Akademie Meggen.</p>
+  <p>Mit über 15 Jahren Erfahrung auf dem Platz, davon viele als aktiver Spieler und Trainer, habe ich unzählige Kinder und Jugendliche beim Wachsen begleitet – sportlich wie persönlich.</p>
+  <p>Mein Ziel ist es, junge Talente mit Herzblut, Disziplin und individueller Förderung stark zu machen.</p>
+  <p>Technik, Mentalität und Spass am Spiel stehen bei mir im Fokus – und vor allem: Menschlichkeit.</p>
+</section>
+
+<section id="trainings">
+  <h2>Trainingsangebot</h2>
+  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+    <h3>Trainingsformen</h3>
+    <ul>
+      <li><strong>Einzeltraining:</strong> Individuelle Förderung mit Fokus auf Technik, Mentalität und Entscheidungsverhalten.</li>
+      <li><strong>Gruppentraining (2–8 Spieler):</strong> Situatives Techniktraining, Spielintelligenz, Teamwork und Wettkampfnähe.</li>
+    </ul>
+
+    <h3>Inhalte & Schwerpunkte</h3>
+    <h4>1. Technik & Ballkontrolle</h4>
+    <ul>
+      <li>Ballannahme, Passspiel, Dribbling & Schusstechniken</li>
+      <li>Beidfüssigkeit fördern</li>
+    </ul>
+
+    <h4>2. Spielintelligenz & Entscheidungsverhalten</h4>
+    <ul>
+      <li>1-gegen-1, Raumwahrnehmung & Umschaltspiel</li>
+    </ul>
+
+    <h4>3. Mentale Stärke & Persönlichkeit</h4>
+    <ul>
+      <li>Selbstvertrauen, Fehlerverarbeitung & Teamfähigkeit</li>
+    </ul>
+    <p>Trainings für Kinder & Jugendliche zwischen 6 und 16 Jahren.</p>
+  </div>
+</section>
+
+<section id="preise">
+  <h2>Preise</h2>
+  <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+    <p><strong>Einzeltraining (60 Minuten):</strong> CHF 80.–</p>
+    <p><strong>Gruppentraining (2–8 Spieler, 60 Minuten):</strong> CHF 40.– pro Spieler</p>
+    <p>Ort: Sportanlage Hofmatt (Meggen). Bei starkem Regen oder Schnee wird das Training verschoben.</p>
+  </div>
+</section>
+
+<section id="buchung">
+  <h2>Trainingsslots buchen</h2>
+  <table>
+    <tr><th>Wochentag</th><th>Uhrzeit</th><th></th></tr>
+    <tr><td>Mittwoch</td><td>13:00 - 14:00</td><td><button onclick="fillSlot('Mittwoch 13:00 - 14:00')">Jetzt anfragen</button></td></tr>
+    <tr><td>Mittwoch</td><td>14:15 - 15:15</td><td><button onclick="fillSlot('Mittwoch 14:15 - 15:15')">Jetzt anfragen</button></td></tr>
+    <tr><td>Mittwoch</td><td>15:30 - 16:30</td><td><button onclick="fillSlot('Mittwoch 15:30 - 16:30')">Jetzt anfragen</button></td></tr>
+    <tr><td>Mittwoch</td><td>16:45 - 17:45</td><td><button onclick="fillSlot('Mittwoch 16:45 - 17:45')">Jetzt anfragen</button></td></tr>
+    <tr><td>Samstag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Samstag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
+    <tr><td>Samstag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Samstag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
+    <tr><td>Samstag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Samstag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Sonntag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Sonntag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Sonntag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>13:30 - 14:30</td><td><button onclick="fillSlot('Sonntag 13:30 - 14:30')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>14:45 - 15:45</td><td><button onclick="fillSlot('Sonntag 14:45 - 15:45')">Jetzt anfragen</button></td></tr>
+    <tr><td>Sonntag</td><td>16:00 - 17:00</td><td><button onclick="fillSlot('Sonntag 16:00 - 17:00')">Jetzt anfragen</button></td></tr>
+  </table>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Du hast Fragen oder möchtest ein Probetraining vereinbaren?</p>
+  <form action="https://formsubmit.co/ibi_bayrak@hotmail.com" method="POST">
+    <input type="text" name="name" placeholder="Dein Name" required />
+    <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
+    <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
+    <input type="text" id="slot" name="slot" placeholder="Gewünschter Trainingsslot" required />
+    <textarea name="message" rows="5" placeholder="Zusätzliche Nachricht (optional)"></textarea>
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="submit" value="Nachricht senden" />
+  </form>
+</section>
 
 <a class="whatsapp-button" href="https://wa.me/41797713253" target="_blank">Chat via WhatsApp</a>
 
