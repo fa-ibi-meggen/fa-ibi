@@ -52,6 +52,37 @@
       font-size: 24px;
       margin-top: 15px;
     }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 12px;
+    }
+    th {
+      background-color: #002b5c;
+      color: white;
+    }
+    td button {
+      padding: 10px 15px;
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    td button:hover {
+      background-color: #1ebc59;
+    }
     form {
       max-width: 600px;
       margin: 0 auto;
@@ -109,34 +140,31 @@
 </head>
 <body>
 
-  <!-- HINWEIS-BANNER -->
-  <div style="background-color: #25D366; color: white; padding: 12px 20px; text-align: center; font-weight: bold; font-size: 16px;">
-    📣 Kickoff-Training am 2. Juli 2025 & Sommer-Camp vom 7.–11. Juli – <a href="#events" style="color: white; text-decoration: underline;">Jetzt informieren & anmelden</a>!
+<div style="background-color: #25D366; color: white; padding: 12px 20px; text-align: center; font-weight: bold; font-size: 16px;">
+  📣 Kickoff-Training am 2. Juli 2025 & Sommer-Camp vom 7.–11. Juli – <a href="#events" style="color: white; text-decoration: underline;">Jetzt informieren & anmelden</a>!
+</div>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">Über mich</a>
+  <a href="#trainings">Trainings</a>
+  <a href="#preise">Preise</a>
+  <a href="#buchung">Buchung</a>
+  <a href="#events">Events</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<header id="home">
+  <img src="logo.PNG" alt="Fussball Akademie Meggen Logo" />
+  <h1>Fussball Akademie Meggen</h1>
+  <p>Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
+  <p style="font-size: 20px; margin-top: 20px;">👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!</p>
+  <div style="margin-top: 10px;">
+    <a href="#buchung" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+      ➤ Kostenlos anfragen
+    </a>
   </div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">Über mich</a>
-    <a href="#trainings">Trainings</a>
-    <a href="#preise">Preise</a>
-    <a href="#buchung">Buchung</a>
-    <a href="#events">Events</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-
-  <header id="home">
-    <img src="logo.PNG" alt="Fussball Akademie Meggen Logo" />
-    <h1>Fussball Akademie Meggen</h1>
-    <p>Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
-    <p style="font-size: 20px; margin-top: 20px;">
-      👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!
-    </p>
-    <div style="margin-top: 10px;">
-      <a href="#buchung" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
-        ➔ Kostenlos anfragen
-      </a>
-    </div>
-  </header>
+</header>
 
 <section id="about">
   <h2>Über mich</h2>
@@ -145,57 +173,40 @@
   <p>Mit über 15 Jahren Erfahrung auf dem Platz, davon viele als aktiver Spieler und Trainer, habe ich unzählige Kinder und Jugendliche beim Wachsen begleitet – sportlich wie persönlich.</p>
   <p>Mein Ziel ist es, junge Talente mit Herzblut, Disziplin und individueller Förderung stark zu machen.</p>
   <p>Technik, Mentalität und Spass am Spiel stehen bei mir im Fokus – und vor allem: Menschlichkeit.</p>
+  <p>Ich glaube daran, dass Fussball nicht nur bessere Spieler formt – sondern auch stärkere Menschen.</p>
 </section>
 
 <section id="trainings">
   <h2>Trainingsangebot</h2>
   <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-
     <h3>Trainingsformen</h3>
     <ul>
-      <li><strong>Einzeltraining:</strong> Höchst individuelle Förderung – ideal zur Technik- und Mentalitätsentwicklung.</li>
-      <li><strong>Gruppentraining (2–8 Spieler):</strong> Spielnahe Übungen, soziale Dynamik und Teamverhalten.</li>
+      <li><strong>Einzeltraining:</strong> Individuelle Förderung mit Fokus auf Technik, Mentalität & Spielverständnis.</li>
+      <li><strong>Gruppentraining (2–8 Spieler):</strong> Training in Kleingruppen – perfekt für Teamplay & situatives Lernen.</li>
     </ul>
 
     <h3>Trainingsinhalte</h3>
-
-    <h4>1. Technik & Ballkontrolle</h4>
+    <h4>Technik & Ballkontrolle</h4>
     <ul>
-      <li>Ballannahme & -mitnahme unter Druck</li>
-      <li>Dribbling-Varianten (Tempo, Richtungswechsel, Körpertäuschung)</li>
-      <li>Passspiel: flach, scharf, klatschen lassen</li>
-      <li>Schusstechniken: Innenseite, Vollspann, Volley, Dropkick</li>
-      <li>Ballkontrolle auf engem Raum</li>
-      <li>Beidfüssigkeit gezielt aufbauen</li>
+      <li>Ballannahme, Passspiel, Dribbling unter Gegnerdruck</li>
+      <li>Schusstechniken: Innenseite, Vollspann, Volley</li>
+      <li>Beidfüssigkeit & Ballkontrolle auf engem Raum</li>
     </ul>
 
-    <h4>2. Taktik & Spielverständnis</h4>
+    <h4>Taktik & Spielintelligenz</h4>
     <ul>
       <li>1-gegen-1 Verhalten offensiv & defensiv</li>
-      <li>Freilaufverhalten, Dreiecksbildung, Anspielbarkeit</li>
-      <li>Positionsspiel & Umschaltverhalten</li>
-      <li>Grundlagen der Raumaufteilung</li>
-      <li>Spielaufbau & Entscheidungsverhalten unter Zeitdruck</li>
+      <li>Freilaufen, Umschalten, Positionierung</li>
+      <li>Spielfeldübersicht & Entscheidungsverhalten</li>
     </ul>
 
-    <h4>3. Athletik & Koordination</h4>
+    <h4>Mentale Stärke</h4>
     <ul>
-      <li>Beweglichkeit & Koordination (Leitern, Hürden, Sprungkraft)</li>
-      <li>Schnelligkeit mit & ohne Ball</li>
-      <li>Stabilisationsübungen (Core, Balance, Rumpf)</li>
-      <li>Wettkampfspezifische Ausdauerformen</li>
+      <li>Selbstbewusstsein aufbauen, Fokus steigern</li>
+      <li>Respekt, Disziplin & Teamfähigkeit</li>
     </ul>
 
-    <h4>4. Mentale Stärke & Persönlichkeit</h4>
-    <ul>
-      <li>Selbstvertrauen & Körpersprache im Spiel</li>
-      <li>Umgang mit Druck, Fehlern und Rückschlägen</li>
-      <li>Mentale Vorbereitung auf Spieltage</li>
-      <li>Teamgeist, Respekt & Kommunikation</li>
-    </ul>
-
-    <p>Alle Trainings werden individuell angepasst – sowohl für Anfänger als auch für ambitionierte Vereinsspieler im Alter von 6 bis 16 Jahren.</p>
-    <p>Das Ziel: <strong>bessere Spieler und stärkere Persönlichkeiten.</strong></p>
+    <p>Für Kinder & Jugendliche zwischen 6 und 16 Jahren – individuell angepasst an das Leistungsniveau.</p>
   </div>
 </section>
 
@@ -204,44 +215,7 @@
   <div style="max-width: 800px; margin: 0 auto; text-align: left;">
     <p><strong>Einzeltraining (60 Minuten):</strong> CHF 80.–</p>
     <p><strong>Gruppentraining (2–8 Spieler, 60 Minuten):</strong> CHF 40.– pro Spieler</p>
-    <p><strong>Einzeltraining 10-er Abo: </strong> CHF 750.–</p>
-    <p><strong>Gruppentraining 10-er Abo: </strong> CHF 350.–</p>
-    <p>Ort: Sportanlage Hofmatt (Meggen).</p>
-  </div>
-</section>
-  
-<section id="events">
-  <h2>Events & Camps</h2>
-  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-
-    <h3>🎯 Kickoff-Event – Der Startschuss!</h3>
-    <p><strong>Datum:</strong> Mittwoch, 02. Juli 2025</p>
-    <p>Am offiziellen Starttag der Fussball Akademie Meggen heissen wir alle fussballbegeisterten Kids willkommen! In drei Einheiten können die Kinder erste Trainingsluft schnuppern und die Akademie kennenlernen.</p>
-    
-    <ul>
-      <li><strong>13:00 – 14:00 Uhr:</strong> Kinder 6–8 Jahre</li>
-      <li><strong>14:30 – 15:30 Uhr:</strong> Kinder 9–12 Jahre</li>
-      <li><strong>16:00 – 17:00 Uhr:</strong> Jugendliche 13–16 Jahre</li>
-    </ul>
-
-    <p>Ort: <strong>Sportanlage Hofmatt, Meggen</strong><br>
-    Anmeldung erforderlich über das <a href="#kontakt">Kontaktformular</a>.</p>
-
-    <hr style="margin: 40px 0;">
-
-    <h3>🏕️ Sommer-Fussballcamp 2025</h3>
-    <p><strong>Datum:</strong> Montag, 07. Juli – Freitag, 11. Juli 2025</p>
-    <p>Ein ganzes Trainingscamp mit Fokus auf Technik, Teamgeist und Spass! Täglich zwei intensive Trainingseinheiten, gesunde Pausen und ein gemeinsames Abschlussevent mit Eltern und Überraschungen.</p>
-
-    <ul>
-      <li>Tägliche Trainingszeiten: 09:30 – 11:30 & 14:00 – 16:00 Uhr</li>
-      <li>Altersgruppen: 6 bis 16 Jahre, in Leistungsgruppen aufgeteilt</li>
-      <li>Betreuung durch lizenzierte Coaches & Mentoren</li>
-      <li>Teilnahmegebühr: CHF 180.– (inkl. Verpflegung & Shirt)</li>
-    </ul>
-
-    <p>Anmeldung bis 23. Juni 2025 über das <a href="#kontakt">Kontaktformular</a> oder per WhatsApp.</p>
-
+    <p>Trainingsort: Sportanlage Hofmatt, Meggen. Bei schlechtem Wetter wird das Training verschoben.</p>
   </div>
 </section>
 
@@ -263,6 +237,32 @@
     <tr><td>Sonntag</td><td>14:45 - 15:45</td><td><button onclick="fillSlot('Sonntag 14:45 - 15:45')">Jetzt anfragen</button></td></tr>
     <tr><td>Sonntag</td><td>16:00 - 17:00</td><td><button onclick="fillSlot('Sonntag 16:00 - 17:00')">Jetzt anfragen</button></td></tr>
   </table>
+</section>
+
+<section id="events">
+  <h2>Events & Camps</h2>
+  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+
+    <h3>🎯 Kickoff-Event – Der Startschuss!</h3>
+    <p><strong>Datum:</strong> Mittwoch, 02. Juli 2025</p>
+    <ul>
+      <li><strong>13:00 – 14:00 Uhr:</strong> Kinder 6–8 Jahre</li>
+      <li><strong>14:30 – 15:30 Uhr:</strong> Kinder 9–12 Jahre</li>
+      <li><strong>16:00 – 17:00 Uhr:</strong> Jugendliche 13–16 Jahre</li>
+    </ul>
+    <p>Ort: Sportanlage Hofmatt, Meggen – Anmeldung über das <a href=\"#kontakt\">Kontaktformular</a>.</p>
+
+    <hr style="margin: 40px 0;">
+
+    <h3>🏕️ Sommer-Fussballcamp 2025</h3>
+    <p><strong>Datum:</strong> Montag, 07. Juli – Freitag, 11. Juli 2025</p>
+    <ul>
+      <li>Trainingszeiten: 09:30–11:30 & 14:00–16:00 Uhr</li>
+      <li>Altersgruppen: 6–16 Jahre, in Gruppen aufgeteilt</li>
+      <li>Gebühr: CHF 180.– inkl. Verpflegung & Shirt</li>
+    </ul>
+    <p>Anmeldung bis 23. Juni 2025 – über Kontaktformular oder WhatsApp.</p>
+  </div>
 </section>
 
 <section id="kontakt">
