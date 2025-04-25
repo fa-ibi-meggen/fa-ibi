@@ -263,40 +263,91 @@
   </div>
 </section>
   
-<section id="events">
-  <h2>Events & Camps</h2>
-  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-
-    <h3>🎯 Kickoff-Event – Der Startschuss!</h3>
-    <p><strong>Datum:</strong> Mittwoch, 02. Juli 2025</p>
-    <ul>
-      <li><strong>13:00 – 14:00 Uhr:</strong> Kinder 6–8 Jahre</li>
-      <li><strong>14:30 – 15:30 Uhr:</strong> Kinder 9–12 Jahre</li>
-      <li><strong>16:00 – 17:00 Uhr:</strong> Jugendliche 13–16 Jahre</li>
-    </ul>
-    <p>Ort: Sportanlage Hofmatt, Meggen</p>
-    <p>
-      <button onclick="fillSlot('KICKOFF 2025 – Mittwoch, 02. Juli')" style="background-color: #ff9800; color: white; padding: 10px 20px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer;">
-        Jetzt für Kickoff anmelden
-      </button>
-    </p>
-
-    <hr style="margin: 40px 0;">
-
-    <h3>🏕️ Sommer-Fussballcamp 2025</h3>
-    <p><strong>Datum:</strong> Montag, 07. Juli – Freitag, 11. Juli 2025</p>
-    <ul>
-      <li>Trainingszeiten: 09:30–11:30 & 14:00–16:00 Uhr</li>
-      <li>Altersgruppen: 6–16 Jahre, in Gruppen aufgeteilt</li>
-      <li>Gebühr: CHF 180.– inkl. Shirt</li>
-    </ul>
-    <p>
-      <button onclick="fillSlot('SOMMERCAMP 2025 – 07.–11. Juli')" style="background-color: #ff9800; color: white; padding: 10px 20px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer;">
-        Jetzt fürs Camp anmelden
-      </button>
-    </p>
+<!-- NEUER BUCHUNGSKALENDER -->
+<section id="buchung">
+  <h2>Trainingskalender</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <button onclick="wechselMonat(-1)">&#8592; Zurück</button>
+    <h3 id="monat-anzeige" style="margin: 0;"></h3>
+    <button onclick="wechselMonat(1)">Weiter &#8594;</button>
   </div>
+  <div id="slots-container" style="display: flex; flex-direction: column; gap: 20px;"></div>
 </section>
+
+<script>
+const alleSlots = {};
+const wochentage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+const mittwochZeiten = ["13:00", "14:15", "15:30", "16:45"];
+const samstagZeiten = ["09:00", "10:15", "11:30"];
+const sonntagZeiten = ["09:00", "10:15", "11:30", "13:30", "14:45", "16:00"];
+
+let start = new Date("2025-07-01");
+let end = new Date("2026-12-31");
+for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+  let day = d.getDay();
+  let tag = wochentage[day];
+  let zeiten = [];
+  if (tag === "Mittwoch") zeiten = mittwochZeiten;
+  if (tag === "Samstag") zeiten = samstagZeiten;
+  if (tag === "Sonntag") zeiten = sonntagZeiten;
+  if (zeiten.length > 0) {
+    const dateStr = d.toISOString().slice(0, 10);
+    const monatKey = dateStr.slice(0, 7);
+    if (!alleSlots[monatKey]) alleSlots[monatKey] = [];
+    alleSlots[monatKey].push({ tag, datum: dateStr, zeiten });
+  }
+}
+
+const belegteSlots = ["2025-07-02_14:15", "2025-07-06_13:30", "2025-08-06_13:00"];
+let aktuellesDatum = new Date("2025-07-01");
+
+function wechselMonat(offset) {
+  aktuellesDatum.setMonth(aktuellesDatum.getMonth() + offset);
+  renderKalender();
+}
+
+function renderKalender() {
+  const jahrMonat = aktuellesDatum.toISOString().slice(0, 7);
+  const container = document.getElementById("slots-container");
+  const anzeige = document.getElementById("monat-anzeige");
+  const eintraege = alleSlots[jahrMonat] || [];
+  anzeige.innerText = aktuellesDatum.toLocaleString("de-CH", { month: "long", year: "numeric" });
+
+  container.innerHTML = eintraege.map(eintrag => {
+    const buttons = eintrag.zeiten.map(uhrzeit => {
+      const key = `${eintrag.datum}_${uhrzeit}`;
+      const belegt = belegteSlots.includes(key);
+      return `<button onclick="fillSlot('${eintrag.tag} ${uhrzeit}')" class="${belegt ? 'slot-button disabled' : 'slot-button'}" ${belegt ? 'disabled' : ''}>${uhrzeit} Uhr</button>`;
+    }).join(" ");
+    return `<div><strong>${eintrag.tag}, ${eintrag.datum}</strong><br>${buttons}</div>`;
+  }).join("");
+}
+
+document.addEventListener("DOMContentLoaded", () => renderKalender());
+</script>
+
+<style>
+  .slot-button {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 16px;
+    margin: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  .slot-button:hover {
+    background-color: #1ebc59;
+  }
+  .slot-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+  }
+</style>
 
 <section id="kontakt">
   <h2>Kontakt</h2>
