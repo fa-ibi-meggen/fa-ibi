@@ -52,16 +52,69 @@
       font-size: 24px;
       margin-top: 15px;
     }
-    
-</style>
-<script>
-  function fillSlot(slot) {
-    const slotInput = document.getElementById('slot');
-    slotInput.value = slot;
-    slotInput.classList.add('highlight');
-    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #1ebc59;
+    }
+    input.highlight {
+      background-color: #d2f4e3;
+      border: 2px solid #25D366;
+    }
+    footer {
+      background-color: #002b5c;
+      color: #e0f0ff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 1001;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .whatsapp-button:hover {
+      background-color: #1ebc59;
+    }
+  </style>
+  <script>
+    function fillSlot(slot) {
+      const slotInput = document.getElementById('slot');
+      slotInput.value = slot;
+      slotInput.classList.add('highlight');
+      document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </head>
 <body>
 
@@ -145,6 +198,7 @@
     <p>Trainingsort: Sportanlage Hofmatt</p>
   </div>
 </section>
+
 <section id="buchung">
   <h2>Trainingsslots buchen</h2>
   <table>
@@ -203,7 +257,7 @@
 <section id="kontakt">
   <h2>Kontakt</h2>
   <p>Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?</p>
-  
+
   <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm">
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
