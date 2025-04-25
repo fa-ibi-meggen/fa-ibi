@@ -98,6 +98,7 @@
     form {
       max-width: 600px;
       margin: 0 auto;
+      <form action="https://formsubmit.co/ibi_bayrak@hotmail.com?success=true" method="POST">
     }
     input, textarea {
       width: 100%;
@@ -301,6 +302,9 @@
     <input type="hidden" name="_captcha" value="false" />
     <input type="submit" value="Nachricht senden" />
   </form>
+  <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background-color: #d2f4e3; color: #1b3c5d; border-left: 5px solid #25D366; font-weight: bold;">
+  ✅ Danke für deine Anfrage! Ich melde mich so schnell wie möglich bei dir.
+</div>
 </section>
 
 <a class="whatsapp-button" href="https://wa.me/41797713253" target="_blank">Chat via WhatsApp</a>
@@ -309,5 +313,13 @@
   &copy; 2025 Fussball Akademie Meggen – alle Rechte vorbehalten.
 </footer>
 
+<script>
+  // Zeigt die Erfolgsnachricht, wenn das Formular gesendet wurde
+  if (window.location.href.includes("success=true")) {
+    document.getElementById("success-message").style.display = "block";
+    document.getElementById("kontakt").scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+  
 </body>
 </html>
