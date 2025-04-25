@@ -83,6 +83,29 @@
     td button:hover {
       background-color: #1ebc59;
     }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #1ebc59;
+    }
     input.highlight {
       background-color: #d2f4e3;
       border: 2px solid #25D366;
@@ -149,81 +172,6 @@
   </div>
 </header>
 
-<section id="about">
-  <h2>Über mich</h2>
-  <img src="profil.PNG" alt="Profilbild Ibrahim Bayrak" style="width: 180px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.6);">
-  <p>Ich bin Ibrahim Bayrak – leidenschaftlicher Fussballtrainer, Spieler und Gründer der Fussball Akademie Meggen.</p>
-  <p>Mit über 15 Jahren Erfahrung auf dem Platz, davon viele als aktiver Spieler und Trainer, habe ich unzählige Kinder und Jugendliche beim Wachsen begleitet – sportlich wie persönlich.</p>
-  <p>Mein Ziel ist es, junge Talente mit Herzblut, Disziplin und individueller Förderung stark zu machen.</p>
-  <p>Technik, Mentalität und Spass am Spiel stehen bei mir im Fokus – und vor allem: Menschlichkeit.</p>
-  <p>Ich glaube daran, dass Fussball nicht nur bessere Spieler formt – sondern auch stärkere Menschen.</p>
-</section>
-
-<section id="trainings">
-  <h2>Trainingsangebot</h2>
-  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-    <h3>Trainingsformen</h3>
-    <ul>
-      <li><strong>Einzeltraining:</strong> Individuelle Förderung mit Fokus auf Technik, Mentalität & Spielverständnis.</li>
-      <li><strong>Gruppentraining (2–8 Spieler):</strong> Training in Kleingruppen – perfekt für Teamplay & situatives Lernen.</li>
-    </ul>
-
-    <h3>Trainingsinhalte</h3>
-    <h4>Technik & Ballkontrolle</h4>
-    <ul>
-      <li>Ballannahme, Passspiel, Dribbling unter Gegnerdruck</li>
-      <li>Schusstechniken: Innenseite, Vollspann, Volley</li>
-      <li>Beidfüssigkeit & Ballkontrolle auf engem Raum</li>
-    </ul>
-
-    <h4>Taktik & Spielintelligenz</h4>
-    <ul>
-      <li>1-gegen-1 Verhalten offensiv & defensiv</li>
-      <li>Freilaufen, Umschalten, Positionierung</li>
-      <li>Spielfeldübersicht & Entscheidungsverhalten</li>
-    </ul>
-
-    <h4>Mentale Stärke</h4>
-    <ul>
-      <li>Selbstbewusstsein aufbauen, Fokus steigern</li>
-      <li>Respekt, Disziplin & Teamfähigkeit</li>
-    </ul>
-
-    <p>Für Kinder & Jugendliche zwischen 6 und 16 Jahren – individuell angepasst an das Leistungsniveau.</p>
-  </div>
-</section>
-
-<section id="preise">
-  <h2>Preise</h2>
-  <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-    <p><strong>Einzeltraining (60 Minuten):</strong> CHF 80.–</p>
-    <p><strong>Gruppentraining (2–8 Spieler, 60 Minuten):</strong> CHF 40.– pro Spieler</p>
-    <p><strong>Einzeltraining 10er-Abo:</strong> CHF 720.–</p>
-    <p><strong>Gruppentraining 10er-Abo:</strong> CHF 360.–</p>
-    <p>Trainingsort: Sportanlage Hofmatt</p>
-  </div>
-</section>
-
-<section id="buchung">
-  <h2>Trainingsslots buchen</h2>
-  <table>
-    <tr><th>Wochentag</th><th>Uhrzeit</th><th></th></tr>
-    <tr><td>Mittwoch</td><td>13:00 - 14:00</td><td><button onclick="fillSlot('Mittwoch 13:00 - 14:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>14:15 - 15:15</td><td><button onclick="fillSlot('Mittwoch 14:15 - 15:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>15:30 - 16:30</td><td><button onclick="fillSlot('Mittwoch 15:30 - 16:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>16:45 - 17:45</td><td><button onclick="fillSlot('Mittwoch 16:45 - 17:45')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Samstag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Samstag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Samstag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Sonntag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Sonntag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Sonntag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>13:30 - 14:30</td><td><button onclick="fillSlot('Sonntag 13:30 - 14:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>14:45 - 15:45</td><td><button onclick="fillSlot('Sonntag 14:45 - 15:45')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>16:00 - 17:00</td><td><button onclick="fillSlot('Sonntag 16:00 - 17:00')">Jetzt anfragen</button></td></tr>
-  </table>
-</section>
-
 <section id="events">
   <h2>Events & Camps</h2>
   <div style="max-width: 900px; margin: 0 auto; text-align: left;">
@@ -256,7 +204,6 @@
         Jetzt fürs Camp anmelden
       </button>
     </p>
-
   </div>
 </section>
 
@@ -279,6 +226,12 @@
   </div>
 </section>
 
+<a class="whatsapp-button" href="https://wa.me/41797713253" target="_blank">Chat via WhatsApp</a>
+
+<footer>
+  &copy; 2025 Fussball Akademie Meggen – alle Rechte vorbehalten.
+</footer>
+
 <script>
   const form = document.getElementById("kontaktForm");
   form.addEventListener("submit", function(e) {
@@ -297,7 +250,6 @@
     });
   });
 </script>
-
 
 </body>
 </html>
