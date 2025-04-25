@@ -6,108 +6,153 @@
   <title>Fussball Akademie Meggen</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #e0f0ff 50%, #ffffff 50%);
-      color: #1b3c5d;
-      font-family: 'Montserrat', sans-serif;
-    }
-    nav {
-      background-color: #002b5c;
-      padding: 15px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: #a6e9ff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    nav a:hover { color: #ffffff; }
-    header {
-      padding: 60px 20px 40px;
-      text-align: center;
-    }
-    header img {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-height: 35vh;
-      object-fit: contain;
-    }
-    header h1 {
-      font-size: 60px;
-      margin: 0;
-    }
-    header p {
-      font-size: 24px;
-      margin-top: 15px;
-    }
-    section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 80px 20px;
-      text-align: center;
-    }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #e0f0ff 50%, #ffffff 50%);
+    color: #1b3c5d;
+    font-family: 'Montserrat', sans-serif;
+  }
+  nav {
+    background-color: #002b5c;
+    padding: 15px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  nav a {
+    color: #a6e9ff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  nav a:hover { color: #ffffff; }
+  header {
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+  header img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 35vh;
+    object-fit: contain;
+  }
+  header h1 {
+    font-size: 60px;
+    margin: 0;
+  }
+  header p {
+    font-size: 24px;
+    margin-top: 15px;
+  }
+  section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+  }
+  th, td {
+    border: 1px solid #444;
+    padding: 12px;
+  }
+  th {
+    background-color: #002b5c;
+    color: white;
+  }
+  td button {
+    padding: 10px 15px;
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  td button:hover {
+    background-color: #1ebc59;
+  }
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+  }
+  input[type="submit"] {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  input[type="submit"]:hover {
+    background-color: #1ebc59;
+  }
+  input.highlight {
+    background-color: #d2f4e3;
+    border: 2px solid #25D366;
+  }
+  footer {
+    background-color: #002b5c;
+    color: #e0f0ff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+  .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .whatsapp-button:hover {
+    background-color: #1ebc59;
+  }
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      font-size: 16px;
-    }
-    input[type="submit"] {
-      background-color: #25D366;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    input[type="submit"]:hover {
-      background-color: #1ebc59;
-    }
-    input.highlight {
-      background-color: #d2f4e3;
-      border: 2px solid #25D366;
-    }
-    footer {
-      background-color: #002b5c;
-      color: #e0f0ff;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      z-index: 1001;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-    .whatsapp-button:hover {
-      background-color: #1ebc59;
-    }
-  </style>
-  <script>
+  /* NEU: Buttons für Buchungsslots */
+  .slot-button {
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  .slot-button:hover {
+    background-color: #1ebc59;
+  }
+</style>
+
+<script>
     function fillSlot(slot) {
       const slotInput = document.getElementById('slot');
       slotInput.value = slot;
@@ -201,22 +246,21 @@
 
 <section id="buchung">
   <h2>Trainingsslots buchen</h2>
-  <table>
-    <tr><th>Wochentag</th><th>Uhrzeit</th><th></th></tr>
-    <tr><td>Mittwoch</td><td>13:00 - 14:00</td><td><button onclick="fillSlot('Mittwoch 13:00 - 14:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>14:15 - 15:15</td><td><button onclick="fillSlot('Mittwoch 14:15 - 15:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>15:30 - 16:30</td><td><button onclick="fillSlot('Mittwoch 15:30 - 16:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Mittwoch</td><td>16:45 - 17:45</td><td><button onclick="fillSlot('Mittwoch 16:45 - 17:45')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Samstag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Samstag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Samstag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Samstag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>09:00 - 10:00</td><td><button onclick="fillSlot('Sonntag 09:00 - 10:00')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>10:15 - 11:15</td><td><button onclick="fillSlot('Sonntag 10:15 - 11:15')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>11:30 - 12:30</td><td><button onclick="fillSlot('Sonntag 11:30 - 12:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>13:30 - 14:30</td><td><button onclick="fillSlot('Sonntag 13:30 - 14:30')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>14:45 - 15:45</td><td><button onclick="fillSlot('Sonntag 14:45 - 15:45')">Jetzt anfragen</button></td></tr>
-    <tr><td>Sonntag</td><td>16:00 - 17:00</td><td><button onclick="fillSlot('Sonntag 16:00 - 17:00')">Jetzt anfragen</button></td></tr>
-  </table>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto;">
+    <button onclick="fillSlot('Mittwoch 13:00 - 14:00')" class="slot-button">Mittwoch 13:00 – 14:00</button>
+    <button onclick="fillSlot('Mittwoch 14:15 - 15:15')" class="slot-button">Mittwoch 14:15 – 15:15</button>
+    <button onclick="fillSlot('Mittwoch 15:30 - 16:30')" class="slot-button">Mittwoch 15:30 – 16:30</button>
+    <button onclick="fillSlot('Mittwoch 16:45 - 17:45')" class="slot-button">Mittwoch 16:45 – 17:45</button>
+    <button onclick="fillSlot('Samstag 09:00 - 10:00')" class="slot-button">Samstag 09:00 – 10:00</button>
+    <button onclick="fillSlot('Samstag 10:15 - 11:15')" class="slot-button">Samstag 10:15 – 11:15</button>
+    <button onclick="fillSlot('Samstag 11:30 - 12:30')" class="slot-button">Samstag 11:30 – 12:30</button>
+    <button onclick="fillSlot('Sonntag 09:00 - 10:00')" class="slot-button">Sonntag 09:00 – 10:00</button>
+    <button onclick="fillSlot('Sonntag 10:15 - 11:15')" class="slot-button">Sonntag 10:15 – 11:15</button>
+    <button onclick="fillSlot('Sonntag 11:30 - 12:30')" class="slot-button">Sonntag 11:30 – 12:30</button>
+    <button onclick="fillSlot('Sonntag 13:30 - 14:30')" class="slot-button">Sonntag 13:30 – 14:30</button>
+    <button onclick="fillSlot('Sonntag 14:45 - 15:45')" class="slot-button">Sonntag 14:45 – 15:45</button>
+    <button onclick="fillSlot('Sonntag 16:00 - 17:00')" class="slot-button">Sonntag 16:00 – 17:00</button>
+  </div>
 </section>
   
 <section id="events">
