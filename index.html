@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <style>
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #e0f0ff 50%, #ffffff 50%);
-    color: #1b3c5d;
-    font-family: 'Montserrat', sans-serif;
-  }
-  ...
-</style>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fussball Akademie Meggen</title>
@@ -95,29 +83,9 @@
     td button:hover {
       background-color: #1ebc59;
     }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm">
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      font-size: 16px;
-    }
-    input[type="submit"] {
-      background-color: #25D366;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    input[type="submit"]:hover {
-      background-color: #1ebc59;
+    input.highlight {
+      background-color: #d2f4e3;
+      border: 2px solid #25D366;
     }
     footer {
       background-color: #002b5c;
@@ -146,8 +114,10 @@
   </style>
   <script>
     function fillSlot(slot) {
-      document.getElementById('slot').value = slot;
-      window.location.hash = '#kontakt';
+      const slotInput = document.getElementById('slot');
+      slotInput.value = slot;
+      slotInput.classList.add('highlight');
+      document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </head>
@@ -293,18 +263,19 @@
 <section id="kontakt">
   <h2>Kontakt</h2>
   <p>Du hast Fragen oder möchtest ein Probetraining vereinbaren?</p>
-  <form action="https://formsubmit.co/ibi_bayrak@hotmail.com" method="POST">
+  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm">
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
-    <input type="text" id="slot" name="slot" placeholder="Gewünschter Trainingsslot" required />
+    <input type="text" id="slot" name="slot" placeholder="Gewünschter Trainingsslot oder Event" required />
     <textarea name="message" rows="5" placeholder="Zusätzliche Nachricht (optional)"></textarea>
     <input type="hidden" name="_captcha" value="false" />
     <input type="submit" value="Nachricht senden" />
   </form>
+
   <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background-color: #d2f4e3; color: #1b3c5d; border-left: 5px solid #25D366; font-weight: bold;">
-  ✅ Danke für deine Anfrage! Ich melde mich so schnell wie möglich bei dir.
-</div>
+    ✅ Danke für deine Anfrage! Ich melde mich so schnell wie möglich bei dir.
+  </div>
 </section>
 
 <a class="whatsapp-button" href="https://wa.me/41797713253" target="_blank">Chat via WhatsApp</a>
@@ -331,6 +302,6 @@
     });
   });
 </script>
-  
+
 </body>
 </html>
