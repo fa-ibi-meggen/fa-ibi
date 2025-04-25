@@ -98,7 +98,7 @@
     form {
       max-width: 600px;
       margin: 0 auto;
-      <form action="https://formsubmit.co/ibi_bayrak@hotmail.com?success=true" method="POST">
+      <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm">
     }
     input, textarea {
       width: 100%;
@@ -314,11 +314,22 @@
 </footer>
 
 <script>
-  // Zeigt die Erfolgsnachricht, wenn das Formular gesendet wurde
-  if (window.location.href.includes("success=true")) {
-    document.getElementById("success-message").style.display = "block";
-    document.getElementById("kontakt").scrollIntoView({ behavior: "smooth" });
-  }
+  const form = document.getElementById("kontaktForm");
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById("success-message").style.display = "block";
+        document.getElementById("slot").classList.remove("highlight");
+      }
+    });
+  });
 </script>
   
 </body>
