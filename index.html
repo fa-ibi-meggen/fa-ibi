@@ -301,56 +301,57 @@
   <div id="slots-container" style="display: flex; flex-direction: column; gap: 20px;"></div>
 </section>
 
-<script>
-const alleSlots = {};
-const wochentage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
-const mittwochZeiten = ["13:00", "14:15", "15:30", "16:45"];
-const samstagZeiten = ["09:00", "10:15", "11:30"];
-const sonntagZeiten = ["09:00", "10:15", "11:30", "13:30", "14:45", "16:00"];
+<section id="buchung">
+  <h2>Trainingsplan – Wochenübersicht</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <button onclick="vorherigeWoche()">&larr; Vorherige Woche</button>
+    <h3 id="wochenanzeige"></h3>
+    <button onclick="naechsteWoche()">Nächste Woche &rarr;</button>
+  </div>
+  <div id="wochenuebersicht" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;"></div>
+</section>
 
-let start = new Date("2025-07-01");
-let end = new Date("2026-12-31");
-for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-  let day = d.getDay();
-  let tag = wochentage[day];
-  let zeiten = [];
-  if (tag === "Mittwoch") zeiten = mittwochZeiten;
-  if (tag === "Samstag") zeiten = samstagZeiten;
-  if (tag === "Sonntag") zeiten = sonntagZeiten;
-  if (zeiten.length > 0) {
-    const dateStr = d.toISOString().slice(0, 10);
-    const monatKey = dateStr.slice(0, 7);
-    if (!alleSlots[monatKey]) alleSlots[monatKey] = [];
-    alleSlots[monatKey].push({ tag, datum: dateStr, zeiten });
+<script>
+const zeiten = {
+  Mittwoch: ["13:00", "14:15", "15:30", "16:45"],
+  Samstag: ["09:00", "10:15", "11:30"],
+  Sonntag: ["09:00", "10:15", "11:30", "13:30", "14:45", "16:00"]
+};
+
+let aktuelleWoche = new Date();
+aktuelleWoche.setDate(aktuelleWoche.getDate() - aktuelleWoche.getDay());
+
+function renderWoche() {
+  const container = document.getElementById("wochenuebersicht");
+  container.innerHTML = "";
+  const anzeige = document.getElementById("wochenanzeige");
+  const start = new Date(aktuelleWoche);
+  const ende = new Date(start);
+  ende.setDate(start.getDate() + 6);
+  anzeige.innerText = `${start.toLocaleDateString('de-CH')} – ${ende.toLocaleDateString('de-CH')}`;
+
+  for (let i = 0; i < 7; i++) {
+    const tag = new Date(start);
+    tag.setDate(tag.getDate() + i);
+    const wochentag = tag.toLocaleDateString('de-CH', { weekday: 'long' });
+    const datum = tag.toISOString().split('T')[0];
+    const tagSlots = zeiten[wochentag] || [];
+    const inhalt = tagSlots.map(zeit => `<button class="slot-button" onclick="fillSlot('${wochentag} ${datum} ${zeit}')">${zeit}</button>`).join("<br>");
+    container.innerHTML += `<div style='border: 1px solid #ccc; padding: 10px; border-radius: 8px;'><strong>${wochentag}<br>${datum}</strong><br>${inhalt}</div>`;
   }
 }
 
-const belegteSlots = [];
-let aktuellesDatum = new Date("2025-07-01");
-
-function wechselMonat(offset) {
-  aktuellesDatum.setMonth(aktuellesDatum.getMonth() + offset);
-  renderKalender();
+function vorherigeWoche() {
+  aktuelleWoche.setDate(aktuelleWoche.getDate() - 7);
+  renderWoche();
 }
 
-function renderKalender() {
-  const jahrMonat = aktuellesDatum.toISOString().slice(0, 7);
-  const container = document.getElementById("slots-container");
-  const anzeige = document.getElementById("monat-anzeige");
-  const eintraege = alleSlots[jahrMonat] || [];
-  anzeige.innerText = aktuellesDatum.toLocaleString("de-CH", { month: "long", year: "numeric" });
-
-  container.innerHTML = eintraege.map(eintrag => {
-    const buttons = eintrag.zeiten.map(uhrzeit => {
-      const key = `${eintrag.datum}_${uhrzeit}`;
-      const belegt = belegteSlots.includes(key);
-      return `<button onclick="fillSlot('${eintrag.tag} ${uhrzeit}')" class="${belegt ? 'slot-button disabled' : 'slot-button'}" ${belegt ? 'disabled' : ''}>${uhrzeit} Uhr</button>`;
-    }).join(" ");
-    return `<div><strong>${eintrag.tag}, ${eintrag.datum}</strong><br>${buttons}</div>`;
-  }).join("");
+function naechsteWoche() {
+  aktuelleWoche.setDate(aktuelleWoche.getDate() + 7);
+  renderWoche();
 }
 
-document.addEventListener("DOMContentLoaded", () => renderKalender());
+document.addEventListener("DOMContentLoaded", renderWoche);
 </script>
 
 <style>
