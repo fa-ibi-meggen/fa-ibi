@@ -304,9 +304,9 @@
 <section id="buchung">
   <h2>Trainingsplan – Wochenübersicht</h2>
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <button onclick="vorherigeWoche()">&larr; Vorherige Woche</button>
+    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x2B05; Rückpass</button>
     <h3 id="wochenanzeige"></h3>
-    <button onclick="naechsteWoche()">Nächste Woche &rarr;</button>
+    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x27A1;</button>
   </div>
   <div id="wochenuebersicht" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;"></div>
 </section>
@@ -319,7 +319,7 @@ const zeiten = {
 };
 
 let aktuelleWoche = new Date();
-aktuelleWoche.setDate(aktuelleWoche.getDate() - aktuelleWoche.getDay());
+aktuelleWoche.setDate(aktuelleWoche.getDate() - ((aktuelleWoche.getDay() + 6) % 7)); // Montag als Wochenstart
 
 function renderWoche() {
   const container = document.getElementById("wochenuebersicht");
