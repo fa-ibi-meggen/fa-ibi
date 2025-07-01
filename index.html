@@ -6,162 +6,110 @@
   <title>Fussball Akademie Meggen</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffffff;
-    color: #1b1b1b;
-  }
-
-  nav {
-    background-color: #9a1111;
-    padding: 15px 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  nav a {
-    color: #ffffff;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-  }
-
-  nav a:hover {
-    color: #ffdede;
-  }
-
-  header {
-    padding: 60px 20px 40px;
-    text-align: center;
-    background-color: #ffecec;
-  }
-
-  header img {
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 35vh;
-    object-fit: contain;
-  }
-
-  header h1 {
-    font-size: 60px;
-    margin: 0;
-    color: #9a1111;
-  }
-
-  header p {
-    font-size: 22px;
-    margin-top: 15px;
-  }
-
-  section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    text-align: center;
-  }
-
-  h2 {
-    color: #9a1111;
-    font-size: 32px;
-    margin-bottom: 40px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 40px;
-  }
-
-  th, td {
-    border: 1px solid #444;
-    padding: 12px;
-  }
-
-  th {
-    background-color: #9a1111;
-    color: white;
-  }
-
-  td button {
-    padding: 10px 15px;
-    background-color: #25D366;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  td button:hover {
-    background-color: #1ebc59;
-  }
-
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    font-size: 16px;
-  }
-
-  input[type="submit"] {
-    background-color: #9a1111;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  input[type="submit"]:hover {
-    background-color: #7c0e0e;
-  }
-
-  footer {
-    background-color: #9a1111;
-    color: #ffffff;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 14px;
-  }
-
-  .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    z-index: 1001;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  .whatsapp-button:hover {
-    background-color: #1ebc59;
-  }
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #1b1b1b;
+    }
+    nav {
+      background-color: #9a1111;
+      padding: 15px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #ffffff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    nav a:hover { color: #ffdede; }
+    header {
+      padding: 60px 20px 40px;
+      text-align: center;
+      background-color: #ffecec;
+    }
+    header img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-height: 35vh;
+      object-fit: contain;
+    }
+    header h1 {
+      font-size: 60px;
+      margin: 0;
+      color: #9a1111;
+    }
+    header p { font-size: 22px; margin-top: 15px; }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #9a1111;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 1001;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .whatsapp-button:hover { background-color: #1ebc59; }
+    .kalender-nav-button {
+      background-color: #9a1111;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .kalender-nav-button:hover {
+      background-color: #7c0e0e;
+    }
+    .slot-button {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 22px;
+      margin: 12px 0;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    .slot-button:hover {
+      background-color: #1ebc59;
+    }
+  </style>
 
 <script>
     function fillSlot(slot) {
