@@ -320,11 +320,14 @@ document.addEventListener("DOMContentLoaded", renderWoche);
   }
 </style>
  
-<section id="kontakt">
-  <h2>Kontakt</h2>
-  <p>Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?</p>
+<section id="kontakt" style="background-color: #fef6f6; padding: 80px 20px; text-align: center;">
+  <h2 style="color: #9a1111;">Kontakt</h2>
+  <p style="font-size: 18px; max-width: 700px; margin: 0 auto 40px;">
+    Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?<br>
+    Schreib mir direkt – ich freue mich auf deine Nachricht!
+  </p>
 
-  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm">
+  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm" style="max-width: 600px; margin: 0 auto; text-align: left; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
@@ -334,7 +337,7 @@ document.addEventListener("DOMContentLoaded", renderWoche);
     <input type="submit" value="Nachricht senden" />
   </form>
 
-  <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background-color: #d2f4e3; color: #1b3c5d; border-left: 5px solid #25D366; font-weight: bold;">
+  <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background-color: #d2f4e3; color: #1b3c5d; border-left: 5px solid #25D366; font-weight: bold; max-width: 600px; margin-left: auto; margin-right: auto;">
     ✅ Danke für deine Anfrage! Ich melde mich so schnell wie möglich bei dir.
   </div>
 </section>
