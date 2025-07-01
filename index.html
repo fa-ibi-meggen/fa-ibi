@@ -294,9 +294,9 @@
 <section id="buchung">
   <h2>Trainingsplan – Wochenübersicht</h2>
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x2B05; Rückpass</button>
+    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Rückpass</button>
     <h3 id="wochenanzeige"></h3>
-    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x27A1;</button>
+    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x25B6;</button>
   </div>
   <div id="wochenuebersicht" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;"></div>
 </section>
@@ -331,7 +331,7 @@ function renderWoche() {
     const datum = tag.toISOString().split('T')[0];
     const tagSlots = zeiten[wochentag] || [];
     const inhalt = tagSlots.map(zeit => `<button class="slot-button" onclick="fillSlot('${wochentag} ${datum} ${zeit}')">${zeit}</button>`).join("<br>");
-    container.innerHTML += `<div style='border: 1px solid #ccc; padding: 10px; border-radius: 8px;'><strong>${wochentag}<br>${datum}</strong><br>${inhalt}</div>`;
+    container.innerHTML += `<div style='border: 1px solid #ccc; padding: 16px; border-radius: 12px; min-height: 140px;'><strong>${wochentag}<br>${datum}</strong><br>${inhalt}</div>`;
   }
 }
 
