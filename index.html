@@ -301,77 +301,17 @@ function fillSlot(slot) {
 
 <section id="buchung">
   <h2>Trainingsplan – Übersicht</h2>
-  <div class="kalender-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Uhrzeit</th>
-        <th id="mittwoch-header">Mittwoch</th>
-<th id="samstag-header">Samstag</th>
-<th id="sonntag-header">Sonntag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>09:00 – 10:00</td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Samstag 09:00')">Buchen</button></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 09:00')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>10:15 – 11:15</td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Samstag 10:15')">Buchen</button></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 10:15')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>11:30 – 12:30</td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Samstag 11:30')">Buchen</button></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 11:30')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>13:00 – 14:00</td>
-          <td><button class="slot-button" onclick="fillSlot('Mittwoch 13:00')">Buchen</button></td>
-          <td><button class="slot-button" onclick="fillSlot('Samstag 13:00')">Buchen</button></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 13:00')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>14:15 – 15:15</td>
-          <td><button class="slot-button" onclick="fillSlot('Mittwoch 14:15')">Buchen</button></td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 14:15')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>15:30 – 16:30</td>
-          <td><button class="slot-button" onclick="fillSlot('Mittwoch 15:30')">Buchen</button></td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 15:30')">Buchen</button></td>
-        </tr>
-        <tr>
-          <td>16:45 – 17:45</td>
-          <td><button class="slot-button" onclick="fillSlot('Mittwoch 16:45')">Buchen</button></td>
-          <td></td>
-          <td><button class="slot-button" onclick="fillSlot('Sonntag 16:45')">Buchen</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Rückpass</button>
+    <h3 id="wochenbereich" style="margin: 0;">Woche</h3>
+    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x25B6;</button>
   </div>
-  <script>
-  function getFormattedDate(offset) {
-    const heute = new Date();
-    const ziel = new Date(heute);
-    ziel.setDate(heute.getDate() + ((offset - heute.getDay() + 7) % 7));
-    return `${ziel.getDate().toString().padStart(2, '0')}.${(ziel.getMonth()+1).toString().padStart(2, '0')}.${ziel.getFullYear()}`;
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("mittwoch-header").innerText = `Mittwoch (${getFormattedDate(3)})`;
-    document.getElementById("samstag-header").innerText = `Samstag (${getFormattedDate(6)})`;
-    document.getElementById("sonntag-header").innerText = `Sonntag (${getFormattedDate(0)})`;
-  });
-</script>
+  <div class="kalender-wrapper" id="kalender-tabelle">
+    <!-- Tabelle wird hier dynamisch eingefügt -->
+  </div>
 </section>
+
 
 <style>
   .slot-button {
@@ -493,23 +433,75 @@ th, td {
 </footer>
 
 <script>
-  const form = document.getElementById("kontaktForm");
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        form.reset();
-        document.getElementById("success-message").style.display = "block";
-        document.getElementById("slot").classList.remove("highlight");
-      }
-    });
-  });
+  let wochenOffset = 0;
+
+  function getDatum(offset, wochentag) {
+    const heute = new Date();
+    const ziel = new Date(heute);
+    const diff = ((wochentag - heute.getDay() + 7) % 7) + offset;
+    ziel.setDate(heute.getDate() + diff);
+    return ziel;
+  }
+
+  function formatDatum(datum) {
+    return `${datum.getDate().toString().padStart(2, '0')}.${(datum.getMonth()+1).toString().padStart(2, '0')}.${datum.getFullYear()}`;
+  }
+
+  function renderKalenderWoche() {
+    const mittwoch = getDatum(wochenOffset, 3);
+    const samstag = getDatum(wochenOffset, 6);
+    const sonntag = getDatum(wochenOffset, 0);
+
+    document.getElementById("wochenbereich").innerText = `Woche ${formatDatum(mittwoch)} – ${formatDatum(sonntag)}`;
+
+    const kalender = document.getElementById("kalender-tabelle");
+
+    kalender.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Uhrzeit</th>
+          <th>Mittwoch (${formatDatum(mittwoch)})</th>
+          <th>Samstag (${formatDatum(samstag)})</th>
+          <th>Sonntag (${formatDatum(sonntag)})</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${renderZeile("09:00 – 10:00", "", "Samstag 09:00", "Sonntag 09:00")}
+        ${renderZeile("10:15 – 11:15", "", "Samstag 10:15", "Sonntag 10:15")}
+        ${renderZeile("11:30 – 12:30", "", "Samstag 11:30", "Sonntag 11:30")}
+        ${renderZeile("13:00 – 14:00", "Mittwoch 13:00", "Samstag 13:00", "Sonntag 13:00")}
+        ${renderZeile("14:15 – 15:15", "Mittwoch 14:15", "", "Sonntag 14:15")}
+        ${renderZeile("15:30 – 16:30", "Mittwoch 15:30", "", "Sonntag 15:30")}
+        ${renderZeile("16:45 – 17:45", "Mittwoch 16:45", "", "Sonntag 16:45")}
+      </tbody>
+    </table>`;
+  }
+
+  function renderZeile(uhrzeit, mittwoch, samstag, sonntag) {
+    return `
+      <tr>
+        <td>${uhrzeit}</td>
+        <td>${mittwoch ? `<button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button>` : ""}</td>
+        <td>${samstag ? `<button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button>` : ""}</td>
+        <td>${sonntag ? `<button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button>` : ""}</td>
+      </tr>
+    `;
+  }
+
+  function naechsteWoche() {
+    wochenOffset += 7;
+    renderKalenderWoche();
+  }
+
+  function vorherigeWoche() {
+    wochenOffset -= 7;
+    renderKalenderWoche();
+  }
+
+  document.addEventListener("DOMContentLoaded", renderKalenderWoche);
 </script>
+
 
 </body>
 </html>
