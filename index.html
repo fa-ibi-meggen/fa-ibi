@@ -291,57 +291,64 @@ input[type="submit"]:hover {
 </section>
 
 <section id="buchung">
-  <h2>Trainingsplan – Wochenübersicht</h2>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Rückpass</button>
-    <h3 id="wochenanzeige"></h3>
-    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x25B6;</button>
+  <h2>Trainingsplan – Übersicht</h2>
+  <div class="kalender-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Uhrzeit</th>
+          <th>Mittwoch</th>
+          <th>Samstag</th>
+          <th>Sonntag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>09:00 – 10:00</td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Samstag 09:00')">Buchen</button></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 09:00')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>10:15 – 11:15</td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Samstag 10:15')">Buchen</button></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 10:15')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>11:30 – 12:30</td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Samstag 11:30')">Buchen</button></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 11:30')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>13:00 – 14:00</td>
+          <td><button class="slot-button" onclick="fillSlot('Mittwoch 13:00')">Buchen</button></td>
+          <td><button class="slot-button" onclick="fillSlot('Samstag 13:00')">Buchen</button></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 13:00')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>14:15 – 15:15</td>
+          <td><button class="slot-button" onclick="fillSlot('Mittwoch 14:15')">Buchen</button></td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 14:15')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>15:30 – 16:30</td>
+          <td><button class="slot-button" onclick="fillSlot('Mittwoch 15:30')">Buchen</button></td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 15:30')">Buchen</button></td>
+        </tr>
+        <tr>
+          <td>16:45 – 17:45</td>
+          <td><button class="slot-button" onclick="fillSlot('Mittwoch 16:45')">Buchen</button></td>
+          <td></td>
+          <td><button class="slot-button" onclick="fillSlot('Sonntag 16:45')">Buchen</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div id="wochenuebersicht" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;"></div>
 </section>
-
-<script>
-const zeiten = {
-  Mittwoch: ["13:00", "14:15", "15:30", "16:45"],
-  Samstag: ["09:00", "10:15", "11:30"],
-  Sonntag: ["09:00", "10:15", "11:30", "13:30", "14:45", "16:00"]
-};
-
-let aktuelleWoche = new Date();
-aktuelleWoche.setDate(aktuelleWoche.getDate() - ((aktuelleWoche.getDay() + 6) % 7)); // Montag als Wochenstart
-
-function renderWoche() {
-  const container = document.getElementById("wochenuebersicht");
-  container.innerHTML = "";
-  const anzeige = document.getElementById("wochenanzeige");
-  const start = new Date(aktuelleWoche);
-  const ende = new Date(start);
-  ende.setDate(start.getDate() + 6);
-  anzeige.innerText = `${start.toLocaleDateString('de-CH')} – ${ende.toLocaleDateString('de-CH')}`;
-
-  for (let i = 0; i < 7; i++) {
-    const tag = new Date(start);
-    tag.setDate(tag.getDate() + i);
-    const wochentag = tag.toLocaleDateString('de-CH', { weekday: 'long' });
-    const datum = tag.toISOString().split('T')[0];
-    const tagSlots = zeiten[wochentag] || [];
-    const inhalt = tagSlots.map(zeit => `<button class="slot-button" onclick="fillSlot('${wochentag} ${datum} ${zeit}')">${zeit}</button>`).join("<br>");
-    container.innerHTML += `<div style='border: 1px solid #ccc; padding: 16px; border-radius: 12px; min-height: 140px;'><strong>${wochentag}<br>${datum}</strong><br>${inhalt}</div>`;
-  }
-}
-
-function vorherigeWoche() {
-  aktuelleWoche.setDate(aktuelleWoche.getDate() - 7);
-  renderWoche();
-}
-
-function naechsteWoche() {
-  aktuelleWoche.setDate(aktuelleWoche.getDate() + 7);
-  renderWoche();
-}
-
-document.addEventListener("DOMContentLoaded", renderWoche);
-</script>
 
 <style>
   .slot-button {
@@ -364,6 +371,34 @@ document.addEventListener("DOMContentLoaded", renderWoche);
     cursor: not-allowed;
     color: #666;
   }
+  .kalender-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  th, td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .slot-button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
 </style>
  
 <section id="kontakt" style="background-color: #fef6f6; padding: 80px 20px; text-align: center;">
