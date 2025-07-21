@@ -173,14 +173,23 @@ input[type="submit"]:hover {
 
   </style>
   <script>
-    function fillSlot(slot) {
-      const slotInput = document.getElementById('slot');
-      if (slotInput) {
-        slotInput.value = slot;
-        slotInput.classList.add('highlight');
-        document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
-      }
+function fillSlot(slot) {
+  const slotInput = document.getElementById('slot');
+  if (slotInput) {
+    slotInput.value = slot;
+    slotInput.classList.add('highlight');
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const buttons = document.querySelectorAll(".slot-button");
+  buttons.forEach(btn => {
+    if (btn.innerText.includes(slot.split(" ")[1])) {
+      btn.classList.add("disabled");
+      btn.disabled = true;
     }
+  });
+}
+
   </script>
 </head>
 <body>
@@ -297,9 +306,9 @@ input[type="submit"]:hover {
       <thead>
         <tr>
           <th>Uhrzeit</th>
-          <th>Mittwoch</th>
-          <th>Samstag</th>
-          <th>Sonntag</th>
+        <th id="mittwoch-header">Mittwoch</th>
+<th id="samstag-header">Samstag</th>
+<th id="sonntag-header">Sonntag</th>
         </tr>
       </thead>
       <tbody>
@@ -348,6 +357,20 @@ input[type="submit"]:hover {
       </tbody>
     </table>
   </div>
+  <script>
+  function getFormattedDate(offset) {
+    const heute = new Date();
+    const ziel = new Date(heute);
+    ziel.setDate(heute.getDate() + ((offset - heute.getDay() + 7) % 7));
+    return `${ziel.getDate().toString().padStart(2, '0')}.${(ziel.getMonth()+1).toString().padStart(2, '0')}.${ziel.getFullYear()}`;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("mittwoch-header").innerText = `Mittwoch (${getFormattedDate(3)})`;
+    document.getElementById("samstag-header").innerText = `Samstag (${getFormattedDate(6)})`;
+    document.getElementById("sonntag-header").innerText = `Sonntag (${getFormattedDate(0)})`;
+  });
+</script>
 </section>
 
 <style>
