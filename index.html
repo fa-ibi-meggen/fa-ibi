@@ -517,7 +517,38 @@ th, td {
 
   document.addEventListener("DOMContentLoaded", renderKalenderWoche);
 </script>
+<script>
+  const form = document.getElementById("kontaktForm");
+  const successMessage = document.getElementById("success-message");
 
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        form.style.display = "none";
+        successMessage.innerText = "✅ Danke für deine Nachricht! Ich melde mich in Kürze mit der Bestätigung.";
+        successMessage.style.display = "block";
+
+        // Optional: Automatisch zurück nach oben scrollen (z. B. zum Header)
+        setTimeout(() => {
+          document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+        }, 2000);
+      } else {
+        alert("❌ Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+      }
+    }).catch(error => {
+      alert("❌ Serverfehler – bitte später nochmals versuchen.");
+    });
+  });
+</script>
 
 </body>
 </html>
