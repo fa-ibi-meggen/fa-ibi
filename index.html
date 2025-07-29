@@ -89,13 +89,24 @@ header h1 {
   color: #ffffff;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
 }
-    header p {
-  font-size: 22px;
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 26px;
+  }
+}
+header p {
+  font-size: 18px;
   margin-top: 15px;
   color: #dddddd;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
-    header p { font-size: 22px; margin-top: 15px; }
+
+@media (max-width: 768px) {
+  header p {
+    font-size: 16px;
+  }
+}
     section {
       max-width: 1000px;
       margin: 0 auto;
