@@ -5,402 +5,559 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fussball Akademie Meggen</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0f3d1e;
-      background-image:
-        radial-gradient(circle at center, rgba(255,255,255,0.08) 2px, transparent 2px),
-        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 200px 200px, 100px 100px, 100px 100px;
-      background-position: center;
-      color: #ffffff;
-    }
-
+  max-width: 100%;
+  overflow-x: hidden;
+}
     :root {
-      --rot: #7c0e0e;
-      --gruen: #25D366;
-      --gold: #ffd700;
-      --hellgrau: #eeeeee;
-      --weiss: #ffffff;
-    }
+  --rot: #7c0e0e;
+  --gruen: #25D366;
+  --gold: #ffd700;
+  --hellgrau: #eeeeee;
+  --weiss: #ffffff;
+}
+    /* Verbesserte Textfarben und Lesbarkeit */
+nav {
+background-color: var(--rot);
+}
+
+section, section p, section h2, section h3, section h4, section li {
+  color: var(--weiss);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  line-height: 1.7;
+}
+section h2 {
+  color: var(--gold);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.kalender-nav-button, .slot-button {
+  color: #ffffff;
+}
+
+#kontakt input, #kontakt textarea {
+background-color: rgba(255, 255, 255, 0.1);
+color: var(--weiss);
+}
+    #kontakt form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-top: 30px;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+}
+#kontakt input, #kontakt textarea {
+  background-color: #0f3d1e;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Optional: leichter Text-Schatten für bessere Lesbarkeit */
+section h2, h3, h4, p, li {
+  text-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+}
+
+    html { scroll-behavior: smooth; }
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0f3d1e; /* Dunkelgrün */
+  background-image: 
+    radial-gradient(circle at center, rgba(255,255,255,0.08) 2px, transparent 2px),
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 200px 200px, 100px 100px, 100px 100px;
+  background-position: center;
+  color: #ffffff;
+}
 
     nav {
-      background-color: var(--rot);
+      background-color: #9a1111;
       padding: 15px 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-
     nav a {
-      color: var(--weiss);
+      color: #ffffff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 600;
       font-size: 16px;
     }
-
-    nav a:hover {
-      color: #ffdede;
+    nav a:hover { color: #ffdede; }
+header {
+  padding: 40px 20px 30px;
+  text-align: center;
+  background: linear-gradient(to bottom right, #7c0e0e, #0f3d1e);
+  color: white;
+}
     }
+header img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
+}
 
-    header {
-      padding: 40px 20px 30px;
-      text-align: center;
-      background: linear-gradient(to bottom right, var(--rot), #0f3d1e);
-      color: var(--weiss);
-    }
+@media (min-width: 768px) {
+  header img {
+    width: 200px;
+    margin-bottom: 10px;
+  }
+}
+    
+@media (max-width: 600px) {
+  header img {
+    width: 140px;
+    margin-bottom: 10px;
+  }
+}
+header h1 {
+  font-size: 36px;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
 
-    header img {
-      width: 140px;
-      height: auto;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      object-fit: contain;
-    }
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 26px;
+  }
+}
+header p {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #dddddd;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
 
-    @media (min-width: 768px) {
-      header img {
-        width: 200px;
-        margin-bottom: 10px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header img {
-        width: 140px;
-        margin-bottom: 10px;
-      }
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin: 0;
-      color: var(--weiss);
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 26px;
-      }
-    }
-
-    header p {
-      font-size: 18px;
-      margin-top: 15px;
-      color: #dddddd;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    }
-
-    @media (max-width: 768px) {
-      header p {
-        font-size: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">Über mich</a>
-    <a href="#events">Events</a>
-    <a href="#trainings">Trainings</a>
-    <a href="#preise">Preise</a>
-    <a href="#buchung">Buchung</a>
-    <a href="#kontakt">Kontakt</a>
-    <a href="#rechtliches">Impressum & Datenschutz</a>
-  </nav>
-
-  <header id="home">
-    <img src="./logo.PNG" alt="Fussball Akademie Meggen Logo" />
-    <h1>Fussball Akademie Meggen</h1>
-    <p>Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
-    <p style="font-size: 20px; margin-top: 20px;">
-      👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!
-    </p>
-    <div style="margin-top: 10px;">
-      <a href="#buchung" style="background-color: var(--gruen); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
-        ➤ Kostenlos anfragen
-      </a>
-    </div>
-  </header>
-  <section id="about">
-    <h2>Über mich</h2>
-    <img src="./profil.PNG" alt="Profilbild Ibi Bayrak" style="width: 160px; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin-bottom: 20px;">
-    <p>
-      Ich bin Ibrahim Bayrak, Trainer mit Herzblut und Fokus auf technische Entwicklung, mentale Stärke und Spass am Fussball.
-      Mit individueller Förderung und modernem Coaching helfe ich Kindern und Jugendlichen, ihr volles Potenzial zu entfalten.
-    </p>
-  </section>
-
-  <section id="events" style="background-color: rgba(255,255,255,0.03);">
-    <h2>Events & Fussballcamps</h2>
-    <p>
-      Hier findest du spezielle Events wie Feriencamps, Turniere oder zusätzliche Workshops. Bleib dran – die nächste Gelegenheit kommt bald!
-    </p>
-    <ul style="list-style: none; padding-left: 0; max-width: 600px; margin: 0 auto;">
-      <li style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
-        <strong>🔜 Herbstcamp 2025</strong><br>
-        ⚽ Technisch-taktisches Gruppentraining für 9–13 Jahre<br>
-        📍 Hofmatt Meggen<br>
-        📅 Oktober 2025 (genaues Datum folgt)
-      </li>
-      <li style="background-color: rgba(255, 255, 255, 0.05); padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
-        <strong>✅ Sommercamp 2025 – abgeschlossen</strong><br>
-        Vielen Dank an alle Teilnehmer! Bilder folgen bald in der Galerie.
-      </li>
-    </ul>
-  </section>
-
-  <style>
+@media (max-width: 768px) {
+  header p {
+    font-size: 16px;
+  }
+}
     section {
       max-width: 1000px;
       margin: 0 auto;
       padding: 80px 20px;
       text-align: center;
     }
-
-    section, section p, section li, section h2, section h3, section h4 {
-      color: var(--weiss);
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    h2 {
+      color: #9a1111;
+      font-size: 32px;
+      margin-bottom: 40px;
     }
-
-    section h2 {
-      color: var(--gold);
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-      font-size: 30px;
-      margin-bottom: 30px;
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 1001;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-
-    section p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
+    .whatsapp-button:hover { background-color: #1ebc59; }
+    .kalender-nav-button {
+      background-color: #9a1111;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 60px 15px;
-      }
-
-      section h2 {
-        font-size: 26px;
-      }
-
-      section p {
-        font-size: 16px;
-      }
+    .kalender-nav-button:hover {
+      background-color: #7c0e0e;
     }
+    .slot-button {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 22px;
+      margin: 12px 0;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    .slot-button:hover {
+      background-color: #1ebc59;
+    }
+    input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fdfdfd;
+}
+
+input[type="submit"] {
+  background-color: #9a1111;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #7c0e0e;
+}
+#kontakt form {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+#kontakt input, #kontakt textarea {
+  margin-bottom: 20px;
+}
+
+#success-message {
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: #d2f4e3;
+  color: #1b3c5d;
+  border-left: 5px solid #25D366;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  #kontakt form {
+    padding: 20px;
+  }
+  .slot-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
   </style>
+  <script>
+function fillSlot(slot) {
+  const slotInput = document.getElementById('slot');
+  if (slotInput) {
+    slotInput.value = slot;
+    slotInput.classList.add('highlight');
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const buttons = document.querySelectorAll(".slot-button");
+  buttons.forEach(btn => {
+    if (btn.innerText.includes(slot.split(" ")[1])) {
+      btn.classList.add("disabled");
+      btn.disabled = true;
+    }
+  });
+}
+
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">Über mich</a>
+  <a href="#events">Events</a>
+  <a href="#trainings">Trainings</a>
+  <a href="#preise">Preise</a>
+  <a href="#buchung">Buchung</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#rechtliches">Impressum & Datenschutz</a>
+</nav>
+
+<header id="home">
+  <img src="./logo.PNG" alt="Fussball Akademie Meggen Logo" />
+  <h1>Fussball Akademie Meggen</h1>
+  <p>Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
+  <p style="font-size: 20px; margin-top: 20px;">👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!</p>
+  <div style="margin-top: 10px;">
+    <a href="#buchung" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+      ➤ Kostenlos anfragen
+    </a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>Über mich</h2>
+<img src="./profil.PNG" alt="Profilbild Ibi Bayrak" style="width: 160px; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.6);">
+  <p>Ich bin Ibrahim Bayrak – leidenschaftlicher Fussballtrainer, Spieler und Gründer der Fussball Akademie Meggen.</p>
+  <p>Mit über 15 Jahren Erfahrung auf dem Platz, davon viele als aktiver Spieler und Trainer, habe ich unzählige Kinder und Jugendliche beim Wachsen begleitet – sportlich wie persönlich.</p>
+  <p>Mein Ziel ist es, junge Talente mit Herzblut, Disziplin und individueller Förderung stark zu machen.</p>
+  <p>Technik, Mentalität und Spass am Spiel stehen bei mir im Fokus – und vor allem: Menschlichkeit.</p>
+  <p>Ich glaube daran, dass Fussball nicht nur bessere Spieler formt – sondern auch stärkere Menschen.</p>
+</section>
+
+<section id="events">
+  <h2>⚽ Events & Fussballcamps</h2>
+  <div style="max-width: 900px; margin: 0 auto; text-align: left; font-size: 17px; line-height: 1.7;">
+    <p><strong>Besondere Erlebnisse. Professionelles Training. Nachhaltige Entwicklung.</strong></p>
+
+    <p>Die Fussball Akademie Meggen bietet regelmässig Events und Fussballcamps an – massgeschneidert für junge Talente zwischen 6 und 16 Jahren. Unsere Angebote ergänzen das wöchentliche Training durch intensive, lehrreiche und motivierende Einheiten.</p>
+
+    <p><strong>Was dich erwartet:</strong></p>
+    <ul>
+      <li>🏃‍♂️ Praxisorientierte Trainingsblöcke in kleinen Gruppen</li>
+      <li>🎯 Schwerpunkte: Technik, Spielformen, Entscheidungsverhalten</li>
+      <li>🧠 Förderung von Mentalität, Fairness und Teamgeist</li>
+      <li>🍽️ Gemeinsame Mittagspause und Betreuung</li>
+      <li>🏅 Abschlussturnier mit Auszeichnungen</li>
+      <li>📸 Gruppenfotos & individuelle Rückmeldungen</li>
+    </ul>
+
+    <p><strong>Für wen?</strong><br>
+    Alle fussballbegeisterten Kinder und Jugendlichen – egal ob Anfänger oder Vereinsspieler.</p>
+
+    <p><strong>📍 Ort:</strong> Sportanlage Hofmatt, Meggen<br>
+    <strong>📆 Termine:</strong> Werden frühzeitig auf der Webseite und via Newsletter kommuniziert.</p>
+
+    <p style="margin-top: 30px; font-weight: bold;">👉 Lust auf ein unvergessliches Erlebnis? Halte dich auf dem Laufenden – wir freuen uns auf dich!</p>
+  </div>
+</section>
+  
 <section id="trainings">
   <h2>Trainingsangebot</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
-    <div style="flex: 1 1 300px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
-      <h3 style="color: var(--gold);">👤 Einzeltraining</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; text-align: left;">
+    <div style="background: #fff8f8; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.07);">
+      <h3 style="color: #9a1111; margin-top: 0;">👤 Einzeltraining</h3>
       <p>Individuelle Förderung mit Fokus auf Technik, Mentalität & Spielverständnis.</p>
-      <ul style="text-align: left; padding-left: 20px;">
+      <ul style="padding-left: 20px;">
         <li>⚽ Techniktraining mit Ball</li>
         <li>🧠 Mentale Stärke & Selbstvertrauen</li>
         <li>🎯 Spielverständnis & Positionierung</li>
       </ul>
     </div>
 
-    <div style="flex: 1 1 300px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
-      <h3 style="color: var(--gold);">👥 Gruppentraining</h3>
+    <div style="background: #fff8f8; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.07);">
+      <h3 style="color: #9a1111; margin-top: 0;">👥 Gruppentraining</h3>
       <p>Für 2–8 Spieler – ideal für Teamplay, Kommunikation und Wettkampfsimulation.</p>
-      <ul style="text-align: left; padding-left: 20px;">
+      <ul style="padding-left: 20px;">
         <li>🔁 Spielsituationen & Kombinationen</li>
         <li>🤝 Teamverhalten & Fairness</li>
         <li>🚀 Spielfreude & Dynamik</li>
       </ul>
     </div>
   </div>
-</section>
 
-<section id="preise">
-  <h2>Preise</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto;">
-    <div style="flex: 1 1 280px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
-      <h3 style="color: var(--gold);">👤 Einzeltraining</h3>
-      <p><strong style="font-size: 20px;">CHF 80.–</strong> / 60 Min</p>
-      <p>1:1 Förderung mit Fokus auf Technik, Spielverständnis und Mentalität.</p>
-      <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
-      <p><strong>10er-Abo:</strong><br>CHF 720.–</p>
-    </div>
-
-    <div style="flex: 1 1 280px; background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
-      <h3 style="color: var(--gold);">👥 Gruppentraining</h3>
-      <p><strong style="font-size: 20px;">CHF 40.–</strong> / Spieler</p>
-      <p>2–8 Spieler pro Einheit – mit Spielnähe und gemeinsamer Weiterentwicklung.</p>
-      <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
-      <p><strong>10er-Abo:</strong><br>CHF 360.– pro Spieler</p>
-    </div>
+  <div style="max-width: 800px; margin: 60px auto 0; text-align: left;">
+    <h3 style="color: #1b1b1b;">Trainingsinhalte</h3>
+    <ul style="line-height: 1.8;">
+      <li>⚽ Ballannahme, Passspiel, Dribbling unter Druck</li>
+      <li>🎯 Taktik: 1-gegen-1, Freilaufverhalten, Umschalten</li>
+      <li>🧠 Mentalität: Disziplin, Selbstbewusstsein, Fokus</li>
+    </ul>
+    <p style="margin-top: 20px;">Für Kinder & Jugendliche zwischen 6 und 16 Jahren – individuell angepasst an das Leistungsniveau.</p>
   </div>
 </section>
 
+
+<section id="preise">
+  <h2>Preise</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto; text-align: center;">
+
+    <div style="flex: 1 1 280px; background: #fef3f3; padding: 30px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #9a1111;">👤 Einzeltraining</h3>
+      <p style="font-size: 18px; margin: 10px 0;"><strong>CHF 80.–</strong> / 60 Min</p>
+      <p>1:1 Förderung mit Fokus auf Technik, Spielverständnis und Mentalität.</p>
+      <hr style="margin: 20px 0;">
+      <p><strong>10er-Abo:</strong><br>CHF 720.–</p>
+    </div>
+
+    <div style="flex: 1 1 280px; background: #fef3f3; padding: 30px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #9a1111;">👥 Gruppentraining</h3>
+      <p style="font-size: 18px; margin: 10px 0;"><strong>CHF 40.–</strong> / Spieler</p>
+      <p>2–8 Spieler pro Einheit – mit Spielnähe und gemeinsamer Weiterentwicklung.</p>
+      <hr style="margin: 20px 0;">
+      <p><strong>10er-Abo:</strong><br>CHF 360.– pro Spieler</p>
+    </div>
+
+  </div>
+
+  <p style="text-align: center; margin-top: 40px;">📍 <strong>Trainingsort:</strong> Sportanlage Hofmatt, Meggen</p>
+</section>
+
+<section id="buchung">
+  <h2>Trainingsplan – Übersicht</h2>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Rückpass</button>
+    <h3 id="wochenbereich" style="margin: 0;">Woche</h3>
+    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x25B6;</button>
+  </div>
+
+  <div class="kalender-wrapper" id="kalender-tabelle">
+    <!-- Tabelle wird hier dynamisch eingefügt -->
+  </div>
+</section>
+
+
 <style>
   .slot-button {
-    background-color: var(--gruen);
+    background-color: #25D366;
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 30px;
-    padding: 14px 22px;
-    margin: 12px 0;
+    padding: 10px 16px;
+    margin: 6px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
     transition: background-color 0.3s ease;
-    width: 100%;
   }
-
   .slot-button:hover {
     background-color: #1ebc59;
   }
-
-  .kalender-nav-button {
-    background-color: var(--rot);
-    color: white;
-    font-weight: bold;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 16px;
+  .slot-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
   }
+  .kalender-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
 
-  .kalender-nav-button:hover {
-    background-color: #600a0a;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  th, td {
+    padding: 8px;
+    font-size: 14px;
   }
+  .slot-button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
 </style>
-<section id="buchung">
-  <h2>Training buchen</h2>
-  <p>Wähle einen freien Slot und sende deine Anfrage. Du erhältst so rasch wie möglich eine Bestätigung.</p>
+ 
+<section id="kontakt" style="background-color: #fef6f6; padding: 80px 20px; text-align: center;">
+  <h2 style="color: #9a1111;">Kontakt</h2>
+  <p style="font-size: 18px; max-width: 700px; margin: 0 auto 40px;">
+    Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?<br>
+    Schreib mir direkt – ich freue mich auf deine Nachricht!
+  </p>
 
-  <!-- Kalender wird hier eingefügt -->
-  <div id="kalender-container">
-    <!-- Hier ist bereits deine angepasste Kalender-Navigation und Slot-Struktur enthalten -->
-    <!-- Wird aus JS dynamisch erzeugt -->
+  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm" style="max-width: 600px; margin: 0 auto; text-align: left; background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    <input type="text" name="name" placeholder="Dein Name" required />
+    <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
+    <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
+    <input type="text" id="slot" name="slot" placeholder="Gewünschter Trainingsslot oder Event" required />
+    <textarea name="message" rows="5" placeholder="Zusätzliche Nachricht (optional)"></textarea>
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="submit" value="Nachricht senden" />
+  </form>
+
+  <div id="success-message" style="display:none; margin-top: 20px; padding: 15px; background-color: #d2f4e3; color: #1b3c5d; border-left: 5px solid #25D366; font-weight: bold; max-width: 600px; margin-left: auto; margin-right: auto;">
+    ✅ Danke für deine Anfrage! Ich melde mich so schnell wie möglich bei dir.
   </div>
 </section>
 
-<section id="kontakt">
-  <h2>Kontakt</h2>
-  <p>Du hast Fragen oder möchtest dich direkt melden? Schreib mir – ich antworte innerhalb von 24 Stunden.</p>
+<a class="whatsapp-button" href="https://wa.me/41797713253" target="_blank">Chat via WhatsApp</a>
 
-  <form action="https://formsubmit.co/ibi_bayrak@hotmail.com" method="POST">
-    <input type="hidden" name="_next" value="https://fussballakademie-meggen.ch/danke.html">
-    <input type="hidden" name="_captcha" value="false">
+<section id="rechtliches" style="max-width: 1000px; margin: 60px auto; padding: 40px 20px; font-size: 15px; line-height: 1.6; color: #333;">
+  <h2 style="color: #9a1111;">Impressum</h2>
+  <p><strong>Verantwortlich für den Inhalt dieser Website:</strong><br>
+    Fussball Akademie Meggen<br>
+    Ibrahim Bayrak<br>
+    Dreilindenstrasse 20<br>
+    6045 Meggen<br>
+    Schweiz
+  </p>
+  <p><strong>Kontakt:</strong><br>
+    E-Mail: <a href="mailto:ibi_bayrak@hotmail.com">ibi_bayrak@hotmail.com</a><br>
+    Telefon: <a href="tel:+41797713253">+41 79 771 32 53</a>
+  </p>
 
-    <label for="name">Name:</label>
-    <input type="text" name="name" required>
+  <h2 style="color: #9a1111; margin-top: 50px;">Datenschutzerklärung</h2>
+  <p>Der Schutz deiner persönlichen Daten ist uns ein besonderes Anliegen. Diese Website kann in der Regel ohne Angabe personenbezogener Daten genutzt werden. Soweit personenbezogene Daten (z. B. Name, Telefonnummer oder E-Mail-Adresse) erhoben werden – etwa durch das Kontaktformular – erfolgt dies auf freiwilliger Basis und ausschliesslich zur Bearbeitung deiner Anfrage.</p>
 
-    <label for="email">E-Mail:</label>
-    <input type="email" name="email" required>
+  <p>Deine Daten werden ohne deine ausdrückliche Zustimmung nicht an Dritte weitergegeben. Die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail oder Formularen) kann Sicherheitslücken aufweisen. Ein vollständiger Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
 
-    <label for="message">Nachricht:</label>
-    <textarea name="message" rows="5" required></textarea>
+  <p><strong>Kontaktformular:</strong> Die über das Formular übermittelten Angaben werden über den externen Anbieter <a href="https://formsubmit.co" target="_blank" rel="noopener">FormSubmit</a> verarbeitet. Dabei gelten deren Datenschutzrichtlinien. Wir speichern diese Daten nicht dauerhaft.</p>
 
-    <button type="submit" class="slot-button">Nachricht senden</button>
-  </form>
+  <p><strong>Hosting:</strong> Diese Website wird bei <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> gehostet. Auch dort gelten die jeweiligen Datenschutzbestimmungen.</p>
+
+  <p><strong>Cookies & Tracking:</strong> Unsere Website verwendet keine Cookies zur Analyse oder Nachverfolgung.</p>
+
+  <p><strong>Recht auf Auskunft:</strong> Du hast jederzeit das Recht auf Auskunft über deine gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.</p>
+
+  <p>Bei Fragen zum Datenschutz kannst du dich jederzeit an uns wenden.</p>
 </section>
+footer {
+  background-color: #7c0e0e;
+  color: var(--weiss);
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+}
 
-<style>
-  #kontakt form {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    margin-top: 30px;
-    color: var(--weiss);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+footer a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+}
 
-  #kontakt label {
-    display: block;
-    margin-top: 20px;
-    text-align: left;
-    font-weight: bold;
-  }
-
-  #kontakt input,
-  #kontakt textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.3);
-    background-color: rgba(255,255,255,0.1);
-    color: var(--weiss);
-    font-size: 16px;
-  }
-
-  #kontakt input::placeholder,
-  #kontakt textarea::placeholder {
-    color: #ccc;
-  }
-
-  #kontakt button {
-    margin-top: 30px;
-  }
-
-  .form-feedback {
-    background-color: #d2f4e3;
-    color: #1b3c5d;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-</style>
-<footer>
+footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
   <div style="margin-bottom: 10px; font-weight: bold;">
     &copy; 2025 Fussball Akademie Meggen – alle Rechte vorbehalten.
   </div>
   <div style="margin-bottom: 10px;">
-    <a href="mailto:info@fussballakademie-meggen.ch">📧 info@fussballakademie-meggen.ch</a>
-    <a href="https://wa.me/41797713253" target="_blank">💬 WhatsApp</a>
+    <a href="mailto:ibi_bayrak@hotmail.com" style="color: white; text-decoration: none; margin: 0 10px;">📧 info@fussballakademie-meggen.ch</a>
+    <a href="https://wa.me/41797713253" target="_blank" style="color: white; text-decoration: none; margin: 0 10px;">💬 WhatsApp</a>
   </div>
   <div>
-    <a href="#rechtliches">Impressum</a> |
-    <a href="#rechtliches">Datenschutz</a>
+    <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Impressum</a> |
+    <a href="#" style="color: white; text-decoration: none; margin: 0 10px;">Datenschutz</a>
   </div>
 </footer>
-
-<section id="rechtliches" style="max-width: 1000px; margin: 60px auto; padding: 40px 20px; font-size: 15px; line-height: 1.6; color: #ddd;">
-  <h2 style="color: var(--gold);">Impressum</h2>
-  <p><strong>Verantwortlich:</strong><br>
-    Fussball Akademie Meggen<br>
-    Ibrahim Bayrak<br>
-    Dreilindenstrasse 20, 6045 Meggen, Schweiz
-  </p>
-  <p><strong>Kontakt:</strong><br>
-    E-Mail: <a href="mailto:info@fussballakademie-meggen.ch">info@fussballakademie-meggen.ch</a><br>
-    Telefon: <a href="tel:+41797713253">+41 79 771 32 53</a>
-  </p>
-
-  <h2 style="color: var(--gold); margin-top: 40px;">Datenschutzerklärung</h2>
-  <p>Diese Website verwendet keine Cookies und keine Tracking-Dienste. Alle Daten, die du über das Formular sendest, werden vertraulich behandelt.</p>
-  <p>Übermittelte Angaben werden über <a href="https://formsubmit.co" target="_blank" rel="noopener">FormSubmit</a> verarbeitet. Wir speichern keine Daten dauerhaft.</p>
-</section>
 
 <script>
   let wochenOffset = 0;
@@ -414,7 +571,7 @@
   }
 
   function formatDatum(datum) {
-    return `${datum.getDate().toString().padStart(2, '0')}.${(datum.getMonth()+1).toString().padStart(2, '0')}.${datum.getFullYear()}`;
+    return ${datum.getDate().toString().padStart(2, '0')}.${(datum.getMonth()+1).toString().padStart(2, '0')}.${datum.getFullYear()};
   }
 
   function renderKalenderWoche() {
@@ -422,15 +579,18 @@
     const samstag = getDatum(wochenOffset, 6);
     const sonntag = getDatum(wochenOffset, 0);
 
-    document.getElementById("kalender-container").innerHTML = `
-    <h3>Woche: ${formatDatum(mittwoch)} – ${formatDatum(sonntag)}</h3>
+    document.getElementById("wochenbereich").innerText = Woche ${formatDatum(mittwoch)} – ${formatDatum(sonntag)};
+
+    const kalender = document.getElementById("kalender-tabelle");
+
+    kalender.innerHTML = 
     <table>
       <thead>
         <tr>
           <th>Uhrzeit</th>
-          <th>Mittwoch</th>
-          <th>Samstag</th>
-          <th>Sonntag</th>
+          <th>Mittwoch (${formatDatum(mittwoch)})</th>
+          <th>Samstag (${formatDatum(samstag)})</th>
+          <th>Sonntag (${formatDatum(sonntag)})</th>
         </tr>
       </thead>
       <tbody>
@@ -442,21 +602,18 @@
         ${renderZeile("15:30 – 16:30", "Mittwoch 15:30", "", "Sonntag 15:30")}
         ${renderZeile("16:45 – 17:45", "Mittwoch 16:45", "", "Sonntag 16:45")}
       </tbody>
-    </table>
-    <div style="margin-top: 20px;">
-      <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Zurück</button>
-      <button onclick="naechsteWoche()" class="kalender-nav-button">Vor &#x25B6;</button>
-    </div>`;
+    </table>;
   }
 
   function renderZeile(uhrzeit, mittwoch, samstag, sonntag) {
-    return `
+    return 
       <tr>
         <td>${uhrzeit}</td>
-        <td>${mittwoch ? `<button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button>` : ""}</td>
-        <td>${samstag ? `<button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button>` : ""}</td>
-        <td>${sonntag ? `<button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button>` : ""}</td>
-      </tr>`;
+        <td>${mittwoch ? <button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button> : ""}</td>
+        <td>${samstag ? <button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button> : ""}</td>
+        <td>${sonntag ? <button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button> : ""}</td>
+      </tr>
+    ;
   }
 
   function naechsteWoche() {
@@ -469,15 +626,40 @@
     renderKalenderWoche();
   }
 
-  function fillSlot(slot) {
-    const slotInput = document.getElementById("slot");
-    if (slotInput) {
-      slotInput.value = slot;
-      slotInput.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
   document.addEventListener("DOMContentLoaded", renderKalenderWoche);
 </script>
+<script>
+  const form = document.getElementById("kontaktForm");
+  const successMessage = document.getElementById("success-message");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        form.style.display = "none";
+        successMessage.innerText = "✅ Danke für deine Nachricht! Ich melde mich in Kürze mit der Bestätigung.";
+        successMessage.style.display = "block";
+
+        // Optional: Automatisch zurück nach oben scrollen (z. B. zum Header)
+        setTimeout(() => {
+          document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+        }, 2000);
+      } else {
+        alert("❌ Es ist ein Fehler aufgetreten. Bitte versuche es erneut.");
+      }
+    }).catch(error => {
+      alert("❌ Serverfehler – bitte später nochmals versuchen.");
+    });
+  });
+</script>
+
 </body>
 </html>
