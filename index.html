@@ -571,7 +571,20 @@ footer a:hover {
   }
 
   function formatDatum(datum) {
-    return ${datum.getDate().toString().padStart(2, '0')}.${(datum.getMonth()+1).toString().padStart(2, '0')}.${datum.getFullYear()};
+    return datum.getDate().toString().padStart(2, '0') + '.' +
+           (datum.getMonth() + 1).toString().padStart(2, '0') + '.' +
+           datum.getFullYear();
+  }
+
+  function renderZeile(uhrzeit, mittwoch, samstag, sonntag) {
+    return `
+      <tr>
+        <td>${uhrzeit}</td>
+        <td>${mittwoch ? `<button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button>` : ''}</td>
+        <td>${samstag ? `<button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button>` : ''}</td>
+        <td>${sonntag ? `<button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button>` : ''}</td>
+      </tr>
+    `;
   }
 
   function renderKalenderWoche() {
@@ -579,41 +592,32 @@ footer a:hover {
     const samstag = getDatum(wochenOffset, 6);
     const sonntag = getDatum(wochenOffset, 0);
 
-    document.getElementById("wochenbereich").innerText = Woche ${formatDatum(mittwoch)} – ${formatDatum(sonntag)};
+    document.getElementById("wochenbereich").innerText =
+      `Woche ${formatDatum(mittwoch)} – ${formatDatum(sonntag)}`;
 
     const kalender = document.getElementById("kalender-tabelle");
 
-    kalender.innerHTML = 
-    <table>
-      <thead>
-        <tr>
-          <th>Uhrzeit</th>
-          <th>Mittwoch (${formatDatum(mittwoch)})</th>
-          <th>Samstag (${formatDatum(samstag)})</th>
-          <th>Sonntag (${formatDatum(sonntag)})</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${renderZeile("09:00 – 10:00", "", "Samstag 09:00", "Sonntag 09:00")}
-        ${renderZeile("10:15 – 11:15", "", "Samstag 10:15", "Sonntag 10:15")}
-        ${renderZeile("11:30 – 12:30", "", "Samstag 11:30", "Sonntag 11:30")}
-        ${renderZeile("13:00 – 14:00", "Mittwoch 13:00", "Samstag 13:00", "Sonntag 13:00")}
-        ${renderZeile("14:15 – 15:15", "Mittwoch 14:15", "", "Sonntag 14:15")}
-        ${renderZeile("15:30 – 16:30", "Mittwoch 15:30", "", "Sonntag 15:30")}
-        ${renderZeile("16:45 – 17:45", "Mittwoch 16:45", "", "Sonntag 16:45")}
-      </tbody>
-    </table>;
-  }
-
-  function renderZeile(uhrzeit, mittwoch, samstag, sonntag) {
-    return 
-      <tr>
-        <td>${uhrzeit}</td>
-        <td>${mittwoch ? <button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button> : ""}</td>
-        <td>${samstag ? <button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button> : ""}</td>
-        <td>${sonntag ? <button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button> : ""}</td>
-      </tr>
-    ;
+    kalender.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Uhrzeit</th>
+            <th>Mittwoch (${formatDatum(mittwoch)})</th>
+            <th>Samstag (${formatDatum(samstag)})</th>
+            <th>Sonntag (${formatDatum(sonntag)})</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${renderZeile("09:00 – 10:00", "", "Samstag 09:00", "Sonntag 09:00")}
+          ${renderZeile("10:15 – 11:15", "", "Samstag 10:15", "Sonntag 10:15")}
+          ${renderZeile("11:30 – 12:30", "", "Samstag 11:30", "Sonntag 11:30")}
+          ${renderZeile("13:00 – 14:00", "Mittwoch 13:00", "Samstag 13:00", "Sonntag 13:00")}
+          ${renderZeile("14:15 – 15:15", "Mittwoch 14:15", "", "Sonntag 14:15")}
+          ${renderZeile("15:30 – 16:30", "Mittwoch 15:30", "", "Sonntag 15:30")}
+          ${renderZeile("16:45 – 17:45", "Mittwoch 16:45", "", "Sonntag 16:45")}
+        </tbody>
+      </table>
+    `;
   }
 
   function naechsteWoche() {
