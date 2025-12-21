@@ -427,18 +427,75 @@ function fillSlot(slot) {
 </section>
 
 <section id="buchung">
-  <h2>Trainingsplan – Übersicht</h2>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-    <button onclick="vorherigeWoche()" class="kalender-nav-button">&#x25C0; Rückpass</button>
-    <h3 id="wochenbereich" style="margin: 0;">Woche</h3>
-    <button onclick="naechsteWoche()" class="kalender-nav-button">Vorwärtspass &#x25B6;</button>
+  <h2>Trainingszeiten – Übersicht</h2>
+
+  <p style="max-width: 800px; margin: 0 auto 25px; font-size: 17px;">
+    Die folgenden Zeiten zeigen die allgemeinen Trainingsfenster. Termine werden nach Anfrage individuell bestätigt.
+  </p>
+
+  <div class="schedule-simple">
+    <div class="schedule-simple-row schedule-simple-head">
+      <div>Tag</div>
+      <div>Zeit</div>
+      <div>Hinweis</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Montag</div>
+      <div>16:00 – 19:30 Uhr</div>
+      <div>Training nach Absprache</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Dienstag</div>
+      <div>–</div>
+      <div>Kein Training</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Mittwoch</div>
+      <div>13:00 – 17:45 Uhr</div>
+      <div>Training nach Absprache</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Donnerstag</div>
+      <div>15:00 – 18:00 Uhr</div>
+      <div>Training nach Absprache</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Freitag</div>
+      <div>13:00 – 17:45 Uhr</div>
+      <div>Training nach Absprache</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Samstag</div>
+      <div>09:00 – 17:00 Uhr</div>
+      <div>Slots nach Anfrage</div>
+    </div>
+
+    <div class="schedule-simple-row">
+      <div class="schedule-simple-day">Sonntag</div>
+      <div>09:00 – 17:00 Uhr</div>
+      <div>Slots nach Anfrage</div>
+    </div>
   </div>
 
-  <div class="kalender-wrapper" id="kalender-tabelle">
-    <!-- Tabelle wird hier dynamisch eingefügt -->
+  <div style="max-width: 900px; margin: 25px auto 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 18px; border-radius: 14px; text-align: left; line-height: 1.6;">
+    <p style="margin: 0;">
+      Buchungen erfolgen über das Kontaktformular. Nach Bestätigung erhältst du Datum, Uhrzeit und Treffpunkt.
+      Kein Training bei Schnee. Kinder und Teilnehmende sind selbst versichert.
+    </p>
+  </div>
+
+  <div style="margin-top: 25px;">
+    <a href="#kontakt" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+      ➤ Training anfragen
+    </a>
   </div>
 </section>
-
 
 <style>
   .slot-button {
