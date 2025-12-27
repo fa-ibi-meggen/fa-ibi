@@ -79,28 +79,29 @@ section h2, h3, h4, p, li {
   color: #ffffff;
 }
 
-    nav {
-      background-color: #9a1111;
-      padding: 15px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: #ffffff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-    }
-    nav a:hover { color: #ffdede; }
-header {
-  padding: 40px 20px 30px;
-  text-align: center;
-  background: linear-gradient(to bottom right, #7c0e0e, #0f3d1e);
-  color: white;
-}
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      Fussball Akademie Meggen
+    </div>
+
+    <button class="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#about" onclick="closeMenu()">Über mich</a>
+      <a href="#events" onclick="closeMenu()">Events</a>
+      <a href="#trainings" onclick="closeMenu()">Trainings</a>
+      <a href="#preise" onclick="closeMenu()">Preise</a>
+      <a href="#buchung" onclick="closeMenu()">Buchung</a>
+      <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
+      <a href="#rechtliches" onclick="closeMenu()">Impressum & Datenschutz</a>
+    </div>
+  </div>
+</nav>
+
     }
 header img {
   width: 140px;
