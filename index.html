@@ -792,6 +792,16 @@ th, td {
 
   document.addEventListener("DOMContentLoaded", renderKalenderWoche);
 </script>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+
+  function closeMenu() {
+    document.getElementById("navLinks").classList.remove("show");
+  }
+</script>
+
 <script>
   const form = document.getElementById("kontaktForm");
   const successMessage = document.getElementById("success-message");
