@@ -20,6 +20,7 @@ html, body {
   --weiss: #ffffff;
 }
 
+.navbar {
   background-color: var(--rot);
   position: sticky;
   top: 0;
@@ -53,10 +54,6 @@ html, body {
   font-size: 15px;
 }
 
-.nav-links a:hover {
-  color: #ffdede;
-}
-
 .hamburger {
   display: none;
   background: none;
@@ -85,17 +82,6 @@ html, body {
   .nav-links.show { display: flex; }
 }
 
-    :root {
-  --rot: #7c0e0e;
-  --gruen: #25D366;
-  --gold: #ffd700;
-  --hellgrau: #eeeeee;
-  --weiss: #ffffff;
-}
-    /* Verbesserte Textfarben und Lesbarkeit */
-nav {
-background-color: var(--rot);
-}
 
 section, section p, section h2, section h3, section h4, section li {
   color: var(--weiss);
@@ -590,9 +576,6 @@ footer a:hover {
   <p>Bei Fragen zum Datenschutz kannst du dich jederzeit an uns wenden.</p>
 </section>
 
-</footer>
-
-
   <script>
   function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
@@ -635,7 +618,6 @@ footer a:hover {
     });
   });
 </script>
-<footer>
   <div style="margin-bottom: 10px; font-weight: bold;">
     &copy; 2025 Fussball Akademie Meggen – alle Rechte vorbehalten.
   </div>
