@@ -11,7 +11,73 @@
     html, body {
   max-width: 100%;
   overflow-x: hidden;
+      /* ===== NAVBAR + HAMBURGER ===== */
+.navbar {
+  background-color: var(--rot);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  color: #ffdede;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .hamburger { display: block; }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--rot);
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 25px 0;
+    display: none;
+  }
+
+  .nav-links.show { display: flex; }
+}
+
     :root {
   --rot: #7c0e0e;
   --gruen: #25D366;
@@ -79,7 +145,6 @@ section h2, h3, h4, p, li {
   color: #ffffff;
 }
 
-    }
 header img {
   width: 140px;
   height: auto;
@@ -300,28 +365,10 @@ footer a:hover {
   }
   .schedule-simple-day {
     font-size: 1.05rem;
-  }
-}
+  
   </style>
-  <script>
-function fillSlot(slot) {
-  const slotInput = document.getElementById('slot');
-  if (slotInput) {
-    slotInput.value = slot;
-    slotInput.classList.add('highlight');
-    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  const buttons = document.querySelectorAll(".slot-button");
-  buttons.forEach(btn => {
-    if (btn.innerText.includes(slot.split(" ")[1])) {
-      btn.classList.add("disabled");
-      btn.disabled = true;
-    }
-
-  </script>
+ 
 </head>
-<body>
 
 <body>
 <nav class="navbar">
@@ -524,129 +571,7 @@ function fillSlot(slot) {
   </div>
 </section>
 
-<style>
-  .slot-button {
-    background-color: #25D366;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 30px;
-    padding: 10px 16px;
-    margin: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  .slot-button:hover {
-    background-color: #1ebc59;
-  }
-  .slot-button.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    color: #666;
-  }
-  .kalender-wrapper {
-  overflow-x: auto;
-  margin-top: 20px;
-}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 500px;
-}
-
-th, td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ccc;
-}
-
-@media (max-width: 600px) {
-  th, td {
-    padding: 8px;
-    font-size: 14px;
-  }
-  .slot-button {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
-}
-/* ===== NAVBAR + HAMBURGER ===== */
-
-.navbar {
-  background-color: var(--rot);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.nav-links a:hover {
-  color: #ffdede;
-}
-
-/* Hamburger Button */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 900px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: var(--rot);
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 25px 0;
-    display: none;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-}
-
-</style>
  <section id="kontakt" style="background-color: #fff1f9; padding: 80px 20px; text-align: center;">
   <h2 style="color: #9a1111;">Kontakt</h2>
   <p style="font-size: 18px; max-width: 700px; margin: 0 auto 40px; color: #111;"><br>
