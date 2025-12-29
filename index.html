@@ -8,11 +8,18 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
+html, body {
   max-width: 100%;
   overflow-x: hidden;
-      /* ===== NAVBAR + HAMBURGER ===== */
-.navbar {
+}
+    :root {
+  --rot: #7c0e0e;
+  --gruen: #25D366;
+  --gold: #ffd700;
+  --hellgrau: #eeeeee;
+  --weiss: #ffffff;
+}
+
   background-color: var(--rot);
   position: sticky;
   top: 0;
@@ -218,47 +225,7 @@ header p {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     .whatsapp-button:hover { background-color: #1ebc59; }
-    .kalender-nav-button {
-      background-color: #9a1111;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .kalender-nav-button:hover {
-      background-color: #7c0e0e;
-    }
-    .slot-button {
-      background-color: #198b52;
-color: #fff;
-      font-weight: bold;
-      border: none;
-      border-radius: 30px;
-      padding: 14px 22px;
-      margin: 12px 0;
-      cursor: pointer;
-      font-size: 15px;
-      transition: background-color 0.3s ease;
-      width: 100%;
-    }
-    .slot-button:hover {
-      background-color: #1ebc59;
-    }
-    input, textarea {
-  width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  background-color: #fdfdfd;
-}
+    
 
 input[type="submit"] {
   background-color: #9a1111;
@@ -357,14 +324,11 @@ footer a:hover {
 
 /* Mobile: alles untereinander */
 @media (max-width: 760px) {
-  .schedule-simple-row {
-    grid-template-columns: 1fr;
-  }
-  .schedule-simple-head {
-    display: none;
-  }
-  .schedule-simple-day {
-    font-size: 1.05rem;
+  .schedule-simple-row { grid-template-columns: 1fr; }
+  .schedule-simple-head { display: none; }
+  .schedule-simple-day { font-size: 1.05rem; }
+}
+
   
   </style>
  
@@ -628,79 +592,7 @@ footer a:hover {
 
 </footer>
 
-<script>
-  let wochenOffset = 0;
 
-  function getDatum(offset, wochentag) {
-    const heute = new Date();
-    const ziel = new Date(heute);
-    const diff = ((wochentag - heute.getDay() + 7) % 7) + offset;
-    ziel.setDate(heute.getDate() + diff);
-    return ziel;
-  }
-
-  function formatDatum(datum) {
-    return datum.getDate().toString().padStart(2, '0') + '.' +
-           (datum.getMonth() + 1).toString().padStart(2, '0') + '.' +
-           datum.getFullYear();
-  }
-
-  function renderZeile(uhrzeit, mittwoch, samstag, sonntag) {
-    return `
-      <tr>
-        <td>${uhrzeit}</td>
-        <td>${mittwoch ? `<button class="slot-button" onclick="fillSlot('${mittwoch}')">Buchen</button>` : ''}</td>
-        <td>${samstag ? `<button class="slot-button" onclick="fillSlot('${samstag}')">Buchen</button>` : ''}</td>
-        <td>${sonntag ? `<button class="slot-button" onclick="fillSlot('${sonntag}')">Buchen</button>` : ''}</td>
-      </tr>
-    `;
-  }
-
-  function renderKalenderWoche() {
-    const mittwoch = getDatum(wochenOffset, 3);
-    const samstag = getDatum(wochenOffset, 6);
-    const sonntag = getDatum(wochenOffset, 0);
-
-    document.getElementById("wochenbereich").innerText =
-      `Woche ${formatDatum(mittwoch)} – ${formatDatum(sonntag)}`;
-
-    const kalender = document.getElementById("kalender-tabelle");
-
-    kalender.innerHTML = `
-      <table>
-        <thead>
-          <tr>
-            <th>Uhrzeit</th>
-            <th>Mittwoch (${formatDatum(mittwoch)})</th>
-            <th>Samstag (${formatDatum(samstag)})</th>
-            <th>Sonntag (${formatDatum(sonntag)})</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${renderZeile("09:00 – 10:00", "", "Samstag 09:00", "Sonntag 09:00")}
-          ${renderZeile("10:15 – 11:15", "", "Samstag 10:15", "Sonntag 10:15")}
-          ${renderZeile("11:30 – 12:30", "", "Samstag 11:30", "Sonntag 11:30")}
-          ${renderZeile("13:00 – 14:00", "Mittwoch 13:00", "Samstag 13:00", "Sonntag 13:00")}
-          ${renderZeile("14:15 – 15:15", "Mittwoch 14:15", "", "Sonntag 14:15")}
-          ${renderZeile("15:30 – 16:30", "Mittwoch 15:30", "", "Sonntag 15:30")}
-          ${renderZeile("16:45 – 17:45", "Mittwoch 16:45", "", "Sonntag 16:45")}
-        </tbody>
-      </table>
-    `;
-  }
-
-  function naechsteWoche() {
-    wochenOffset += 7;
-    renderKalenderWoche();
-  }
-
-  function vorherigeWoche() {
-    wochenOffset -= 7;
-    renderKalenderWoche();
-  }
-
-  document.addEventListener("DOMContentLoaded", renderKalenderWoche);
-</script>
   <script>
   function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
