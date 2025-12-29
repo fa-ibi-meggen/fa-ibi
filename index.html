@@ -97,11 +97,6 @@ section h2 {
 }
 
 #kontakt input, #kontakt textarea {
-background-color: rgba(255, 255, 255, 0.1);
-color: var(--weiss);
-}
-
-#kontakt input, #kontakt textarea {
   background-color: #0f3d1e;
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.3);
@@ -300,6 +295,66 @@ footer a:hover {
   .schedule-simple-day { font-size: 1.05rem; }
 }
 
+/* =========================
+   KONTAKT – DUNKLES DESIGN
+   ========================= */
+
+#kontakt {
+  background: rgba(0,0,0,0.35);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#kontakt form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  background: rgba(0,0,0,0.45);
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+}
+
+#kontakt input,
+#kontakt textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+#kontakt input::placeholder,
+#kontakt textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+#kontakt input:focus,
+#kontakt textarea:focus {
+  outline: none;
+  border-color: var(--gruen);
+  background-color: rgba(255,255,255,0.12);
+}
+
+#kontakt input[type="submit"] {
+  background-color: var(--gruen);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#kontakt input[type="submit"]:hover {
+  background-color: #1ebc59;
+}
   
   </style>
  
@@ -506,15 +561,17 @@ footer a:hover {
   </div>
 </section>
 
-
- <section id="kontakt" style="background-color: #fff1f9; padding: 80px 20px; text-align: center;">
+<section id="kontakt">
   <h2 style="color: #9a1111;">Kontakt</h2>
   <p style="font-size: 18px; max-width: 700px; margin: 0 auto 40px; color: #111;"><br>
     Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?<br>
     Schreib mir direkt – ich freue mich auf deine Nachricht!
   </p>
 
-  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com" method="POST" id="kontaktForm" style="max-width: 600px; margin: 0 auto; text-align: left; background-color: #f4f0f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+  <form action="https://formsubmit.co/ajax/ibi_bayrak@hotmail.com"
+      method="POST"
+      id="kontaktForm">
+ text-align: left; background-color: #f4f0f0; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
