@@ -64,23 +64,33 @@ html, body {
   z-index: 1100;
 }
 
-@media (max-width: 1024px) {
-  .hamburger { display: block; }
+.hamburger{
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+}
 
-  .nav-links {
+@media (max-width: 900px){
+  .hamburger{ display: block; }
+
+  .nav-links{
     position: absolute;
-    top: 60px;
+    top: 56px;
     left: 0;
     right: 0;
     background-color: var(--rot);
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    padding: 25px 0;
+    padding: 22px 0;
     display: none;
   }
 
-  .nav-links.show { display: flex; }
+  .nav-links.show{ display: flex; }
 }
 
 section, section p, section h2, section h3, section h4, section li {
@@ -406,6 +416,32 @@ footer a:hover {
     padding: 10px 16px;
   }
 }
+.cards-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media (max-width: 760px){
+  .cards-grid{ grid-template-columns: 1fr; }
+}
+.cards-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 760px){
+  .cards-flex{ flex-direction: column; }
+  .cards-flex > div{ width: 100%; }
+}
 
   </style>
  
@@ -482,7 +518,7 @@ footer a:hover {
   
 <section id="trainings">
   <h2>Trainingsangebot</h2>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; text-align: left;">
+  <div class="cards-grid">
     <div style="background: #f9cfcf; color: #111; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.07);">
       <h3 style="color: #9a1111; margin-top: 0;">👤 Einzeltraining</h3>
       <p>Individuelle Förderung mit Fokus auf Technik, Mentalität & Spielverständnis.</p>
@@ -518,8 +554,7 @@ footer a:hover {
 
 <section id="preise">
   <h2>Preise</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1000px; margin: 0 auto; text-align: center;">
-
+ <div class="cards-flex">
     <div style="flex: 1 1 280px; background: #f9cfcf; color: #111; padding: 30px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
       <h3 style="color: #9a1111;">👤 Einzeltraining</h3>
       <p style="font-size: 18px; margin: 10px 0;"><strong>CHF 80.–</strong> / 60 Min</p>
@@ -614,7 +649,8 @@ footer a:hover {
 
 <section id="kontakt">
   <h2>Kontakt</h2>
-  <p>
+
+  <p class="kontakt-text">
     Du hast Fragen oder möchtest ein Probetraining oder einen Event buchen?<br>
     Schreib mir direkt – ich freue mich auf deine Nachricht!
   </p>
@@ -666,14 +702,18 @@ footer a:hover {
   <p>Bei Fragen zum Datenschutz kannst du dich jederzeit an uns wenden.</p>
 </section>
 
-  <script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.getElementById("navLinks");
 
-  function closeMenu() {
-    document.getElementById("navLinks").classList.remove("show");
-  }
+  window.toggleMenu = function () {
+    navLinks.classList.toggle("show");
+  };
+
+  window.closeMenu = function () {
+    navLinks.classList.remove("show");
+  };
+});
 </script>
 
 <script>
