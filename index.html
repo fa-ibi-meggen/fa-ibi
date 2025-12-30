@@ -393,22 +393,30 @@
       #kontakt form { padding: 18px; border-radius: 12px; }
     }
 
-    /* =========================
-       FIXES LOGO OBEN RECHTS
-       ========================= */
-    .fixed-logo {
-      position: fixed;
-      top: 12px;
-      right: 14px;
-      z-index: 2000;
-    }
+/* =========================
+   FIXES LOGO OBEN RECHTS
+   ========================= */
+.fixed-logo {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 2000;
+}
 
-    .fixed-logo img {
-      height: 44px;
-      width: auto;
-      object-fit: contain;
-      opacity: 0.95;
-    }
+.fixed-logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* DESKTOP: Logo deutlich grösser */
+@media (min-width: 1024px) {
+  .fixed-logo img {
+    height: 130px; /* ca. 3x so gross */
+  }
+}
+
 
     @media (max-width: 600px) {
       .fixed-logo img { height: 36px; }
