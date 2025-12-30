@@ -26,6 +26,18 @@ html, body {
   top: 0;
   z-index: 1000;
 }
+    
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
 .nav-container {
   max-width: 1100px;
@@ -467,7 +479,13 @@ footer a:hover {
 <body>
 <nav class="navbar">
   <div class="nav-container">
-    <div class="nav-logo">Fussball Akademie Meggen</div>
+    <div class="nav-left">
+  <div class="nav-logo">Fussball Akademie Meggen</div>
+</div>
+
+<div class="nav-right">
+  <img src="./logo.PNG" alt="Fussball Akademie Meggen Logo" class="nav-logo-img">
+</div>
 
     <button class="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">☰</button>
 
@@ -485,15 +503,16 @@ footer a:hover {
 </nav>
 
 <header id="home">
-  <img src="./logo.PNG" alt="Fussball Akademie Meggen Logo" />
   <h1>Fussball Akademie Meggen</h1>
-  <p>Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
-  <p style="font-size: 20px; margin-top: 20px;">👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!</p>
-  <div style="margin-top: 10px;">
-    <a href="#buchung" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
-      ➤ Kostenlos anfragen
-    </a>
-  </div>
+  <p class="intro-claim">Trainiere mit Leidenschaft. Wachse mit Disziplin.</p>
+
+<p style="font-size: 20px; margin-top: 20px; margin-bottom: 12px;">
+  👟 Jetzt Probetraining buchen und das Beste aus deinem Fussball rausholen!
+</p>
+
+<a href="#buchung" style="background-color: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">
+  ➤ Kostenlos anfragen
+</a>
 </header>
 
 <section id="about">
