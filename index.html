@@ -55,13 +55,12 @@ html, body {
 }
 
 .hamburger {
-  display: none;
+  display: block;            /* ✅ auch auf Desktop sichtbar */
   background: none;
   border: none;
-  font-size: 30px;
-  color: #ffffff;
+  font-size: 28px;
+  color: white;
   cursor: pointer;
-  z-index: 1100;
 }
 
 .hamburger{
@@ -392,6 +391,74 @@ footer a:hover {
   #kontakt .kontakt-text { font-size: 16px; margin-bottom: 22px; }
   #kontakt form { padding: 18px; border-radius: 12px; }
 }
+/* =========================
+   GLASS CARDS (wie Kontakt)
+   ========================= */
+
+.glass-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+<div class="glass-grid-2">
+
+}
+
+.glass-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.glass-card {
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  color: rgba(255,255,255,0.92);
+}
+
+.glass-card h3 {
+  color: var(--gold);
+  margin-top: 0;
+}
+
+.glass-card p,
+.glass-card li {
+  color: rgba(255,255,255,0.92);
+  text-shadow: none;
+}
+
+.glass-card ul {
+  padding-left: 20px;
+}
+
+.glass-card hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  margin: 18px 0;
+}
+
+/* ✅ Mobile: alles untereinander */
+@media (max-width: 900px) {
+  .glass-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .glass-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .glass-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 
 </style>
  
@@ -469,7 +536,7 @@ footer a:hover {
 <section id="trainings">
   <h2>Trainingsangebot</h2>
   <div class="cards-grid">
-    <div style="background: #f9cfcf; color: #111; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.07);">
+    <div class="glass-card">
       <h3 style="color: #9a1111; margin-top: 0;">👤 Einzeltraining</h3>
       <p>Individuelle Förderung mit Fokus auf Technik, Mentalität & Spielverständnis.</p>
       <ul style="padding-left: 20px;">
@@ -479,7 +546,7 @@ footer a:hover {
       </ul>
     </div>
 
-    <div style="background: #f9cfcf; color: #111; padding: 25px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.07);">
+    <div class="glass-card">
       <h3 style="color: #9a1111; margin-top: 0;">👥 Gruppentraining</h3>
       <p>Für 2–8 Spieler – ideal für Teamplay, Kommunikation und Wettkampfsimulation.</p>
       <ul style="padding-left: 20px;">
@@ -505,19 +572,20 @@ footer a:hover {
 <section id="preise">
   <h2>Preise</h2>
  <div class="cards-flex">
-    <div style="flex: 1 1 280px; background: #f9cfcf; color: #111; padding: 30px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <div class="glass-row">
       <h3 style="color: #9a1111;">👤 Einzeltraining</h3>
       <p style="font-size: 18px; margin: 10px 0;"><strong>CHF 80.–</strong> / 60 Min</p>
       <p>1:1 Förderung mit Fokus auf Technik, Spielverständnis und Mentalität.</p>
       <hr style="margin: 20px 0;">
       <p><strong>10er-Abo:</strong><br>CHF 720.–</p>
     </div>
-
-    <div style="flex: 1 1 280px; background: #f9cfcf; color: #111; padding: 30px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+   
+    <div class="glass-row">
       <h3 style="color: #9a1111;">👥 Gruppentraining</h3>
       <p style="font-size: 18px; margin: 10px 0;"><strong>CHF 40.–</strong> / Spieler</p>
       <p>2–8 Spieler pro Einheit – mit Spielnähe und gemeinsamer Weiterentwicklung.</p>
-      <hr style="margin: 20px 0;">
+      <hr style="margin: 20px 0;"><div class="glass-row">
+
       <p><strong>10er-Abo:</strong><br>CHF 360.– pro Spieler</p>
     </div>
 
