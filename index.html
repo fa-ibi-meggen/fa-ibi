@@ -421,10 +421,17 @@
   }
 }
 
+@media (max-width: 600px) {
+  .fixed-logo {
+    top: 10px;
+    left: 12px;
+    right: auto; /* wichtig: verhindert Konflikt */
+  }
 
-    @media (max-width: 600px) {
-      .fixed-logo img { height: 36px; }
-    }
+  .fixed-logo img {
+    height: 36px;
+  }
+}
 
     /* =========================
        FOOTER
