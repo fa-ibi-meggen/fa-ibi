@@ -471,12 +471,41 @@ footer a:hover {
     box-sizing: border-box;
   }
 }
+/* =========================
+   FIXES LOGO OBEN RECHTS
+   ========================= */
+
+.fixed-logo {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 2000;
+}
+
+.fixed-logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* Mobile etwas kleiner */
+@media (max-width: 600px) {
+  .fixed-logo img {
+    height: 36px;
+  }
+}
 
 </style>
  
 </head>
 
 <body>
+<div class="fixed-logo">
+  <a href="#home">
+    <img src="./logo.PNG" alt="Fussball Akademie Meggen Logo">
+  </a>
+</div>
 <nav class="navbar">
   <div class="nav-container">
     <div class="nav-left">
